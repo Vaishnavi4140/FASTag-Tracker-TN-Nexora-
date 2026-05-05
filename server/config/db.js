@@ -1,4 +1,4 @@
-const mongoose = require('mongoose'); // require use karein, import nahi
+const mongoose = require('mongoose'); 
 
 const connectDB = async () => {
     try {
