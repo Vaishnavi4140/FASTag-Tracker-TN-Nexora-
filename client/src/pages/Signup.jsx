@@ -28,6 +28,11 @@ function Signup() {
 
   return (
     <div className="signup-container">
+      <div className="Back-To">
+        
+          <Link to="/"> ←Back to Home</Link>
+
+      </div>
       <div className="signup-card">
         <div className="logo-row">
           <div className="logo-box">
