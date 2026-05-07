@@ -9,6 +9,7 @@ console.log("MONGO_URI:", process.env.MONGO_URI);
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const tollRoutes = require("./routes/tollRoutes");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/transactions", tollRoutes);
 
 app.get("/", (req, res) => {
   res.send("API running");

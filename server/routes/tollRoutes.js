@@ -1,15 +1,34 @@
-import express from 'express';
-import {
-    createTransaction,
-    getUserTransactions
-} from '../controllers/tollController.js';
+const express = require("express");
+
+const {
+  createTransaction,
+  getAllTransactions,
+  getTransactionById,
+  updateTransaction,
+  deleteTransaction,
+} = require("../controllers/tollController");
 
 const router = express.Router();
 
-// Create transaction
-router.post('/', createTransaction);
 
-// Get all transactions for a user
-router.get('/:userId', getUserTransactions);
+// CREATE
+router.post("/", createTransaction);
 
-export default router;
+
+// GET ALL
+router.get("/", getAllTransactions);
+
+
+// GET SINGLE
+router.get("/:id", getTransactionById);
+
+
+// UPDATE
+router.put("/:id", updateTransaction);
+
+
+// DELETE
+router.delete("/:id", deleteTransaction);
+
+
+module.exports = router;
