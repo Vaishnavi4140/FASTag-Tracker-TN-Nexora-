@@ -29,6 +29,11 @@ function Signin() {
 
   return (
     <div className="container-1">
+      <div className="Back-To">
+              
+                <Link to="/"> ←Back to Home</Link>
+      
+            </div>
       <div className="card-1">
         <div className="logoBox">
           <div className="logo">
@@ -72,7 +77,7 @@ function Signin() {
         <button className="btn" onClick={handleSignin}>Sign in →</button>
 
         <p className="bottomText">
-          Don't have an account?<Link to="/">Sign up free</Link> 
+          Don't have an account?<Link to="/signup">Sign up free</Link> 
         </p>
       </div>
     </div>

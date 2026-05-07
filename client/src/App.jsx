@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 // import Navbar from "./components/Navbar";
@@ -15,7 +15,7 @@ function App() {
 
       <Routes>
 
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Home />} />
 
         <Route path="/signin" element={<Signin />} />
 
