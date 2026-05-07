@@ -1,88 +1,151 @@
-// export const loginUser = (req, res) => {
-//   // logic
-// };
+const Transaction = require("../models/TollTransaction");
 
-import Transaction from '../models/TollTransaction.js';
-import User from '../models/User.js';
 
-// ================= CREATE TRANSACTION =================
-// Handles both TOLL_DEBIT and RECHARGE
-export const createTransaction = async (req, res) => {
+// CREATE TRANSACTION
+const createTransaction = async (req, res) => {
   try {
     const {
-      userId,
+      user,
       vehicleNumber,
       tollName,
       amount,
-      transactionType = 'TOLL_DEBIT',
-      location = ''
+      balanceBefore,
+      balanceAfter,
+      transactionType,
+      status,
+      location,
     } = req.body;
 
-    // -------- basic validation --------
-    if (!userId || !vehicleNumber || !amount) {
-      return res.status(400).json({ message: "userId, vehicleNumber, amount are required" });
-    }
-
-    if (amount <= 0) {
-      return res.status(400).json({ message: "Amount must be greater than 0" });
-    }
-
-    // -------- get user --------
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    // NOTE: Your User schema currently doesn't have a balance field.
-    // We’ll derive last known balance from previous transaction.
-    const lastTxn = await Transaction.findOne({ user: userId })
-      .sort({ createdAt: -1 });
-
-    const previousBalance = lastTxn ? lastTxn.balanceAfter : 0;
-
-    let newBalance;
-
-    if (transactionType === 'TOLL_DEBIT') {
-      if (previousBalance < amount) {
-        return res.status(400).json({ message: "Insufficient balance" });
-      }
-      newBalance = previousBalance - amount;
-    } else if (transactionType === 'RECHARGE') {
-      newBalance = previousBalance + amount;
-    } else {
-      return res.status(400).json({ message: "Invalid transaction type" });
-    }
-
-    // -------- create transaction --------
-    const transaction = await Transaction.create({
-      user: userId,
-      vehicleNumber: vehicleNumber.toUpperCase().trim(),
-      tollName: tollName || '',
+    const transaction = new Transaction({
+      user,
+      vehicleNumber,
+      tollName,
       amount,
-      balanceBefore: previousBalance,
-      balanceAfter: newBalance,
+      balanceBefore,
+      balanceAfter,
       transactionType,
-      location
+      status,
+      location,
     });
 
-    res.status(201).json(transaction);
+    const savedTransaction = await transaction.save();
+
+    res.status(201).json({
+      message: "Transaction created successfully",
+      transaction: savedTransaction,
+    });
 
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: "Error creating transaction",
+      error: error.message,
+    });
   }
 };
 
-// ================= GET USER TRANSACTIONS =================
-export const getUserTransactions = async (req, res) => {
-  try {
-    const { userId } = req.params;
 
-    const transactions = await Transaction.find({ user: userId })
+// GET ALL TRANSACTIONS
+const getAllTransactions = async (req, res) => {
+  try {
+    const transactions = await Transaction.find()
+      .populate("user", "name email vehicleNumber")
       .sort({ createdAt: -1 });
 
     res.status(200).json(transactions);
 
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: "Error fetching transactions",
+      error: error.message,
+    });
   }
+};
+
+
+// GET SINGLE TRANSACTION
+const getTransactionById = async (req, res) => {
+  try {
+    const transaction = await Transaction.findById(req.params.id)
+      .populate("user", "name email");
+
+    if (!transaction) {
+      return res.status(404).json({
+        message: "Transaction not found",
+      });
+    }
+
+    res.status(200).json(transaction);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching transaction",
+      error: error.message,
+    });
+  }
+};
+
+
+// UPDATE TRANSACTION
+const updateTransaction = async (req, res) => {
+  try {
+    const updatedTransaction = await Transaction.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    if (!updatedTransaction) {
+      return res.status(404).json({
+        message: "Transaction not found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Transaction updated successfully",
+      transaction: updatedTransaction,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Error updating transaction",
+      error: error.message,
+    });
+  }
+};
+
+
+// DELETE TRANSACTION
+const deleteTransaction = async (req, res) => {
+  try {
+    const deletedTransaction = await Transaction.findByIdAndDelete(
+      req.params.id
+    );
+
+    if (!deletedTransaction) {
+      return res.status(404).json({
+        message: "Transaction not found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Transaction deleted successfully",
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting transaction",
+      error: error.message,
+    });
+  }
+};
+
+
+module.exports = {
+  createTransaction,
+  getAllTransactions,
+  getTransactionById,
+  updateTransaction,
+  deleteTransaction,
 };
