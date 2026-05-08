@@ -6,13 +6,9 @@ import phone from "../assets/phone.jpg";
 import view from "../assets/view.jpg";
 import car from "../assets/car.jpg";
 
-
 import Footer from "../components/Footer";
 import { FaRupeeSign, FaSlidersH, FaDollarSign, FaCar , FaChartLine,FaEnvelope, FaTachometerAlt ,FaBullseye, FaEye, FaHeart, FaUser, FaShieldAlt } from "react-icons/fa";
 import { MdFlashOn, MdPhoneAndroid,MdAnalytics , MdAutoFixHigh } from "react-icons/md";
-
-
-
 
 function Home()
 {
