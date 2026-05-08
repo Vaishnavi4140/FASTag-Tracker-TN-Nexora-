@@ -20,8 +20,8 @@ function Signin() {
       // to save token
       localStorage.setItem("token", response.data.token);
       alert("Welcome back!");
-      //navigate("/dashboard"); // Successful login 
-      navigate("/");
+      navigate("/dashboard"); // Successful login 
+      // navigate("/");
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
