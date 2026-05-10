@@ -2,64 +2,56 @@ const mongoose = require("mongoose");
 
 const transactionSchema = new mongoose.Schema(
 {
-    // Reference to user
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
     },
-
-    // Vehicle identifier (FASTag is vehicle-linked)
+    // Validation: Added match to ensure proper Indian Vehicle Number format
     vehicleNumber: {
         type: String,
         required: true,
         uppercase: true,
         trim: true,
+        match: [/^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$/, 'Please fill a valid vehicle number']
     },
-
-    // Toll booth / plaza name
+    //  Categorizing vehicles for toll analytics
+    vehicleType: {
+        type: String,
+        enum: ['CAR', 'TRUCK', 'BUS', 'VAN'],
+        default: 'CAR',
+    },
     tollName: {
         type: String,
         required: true,
         trim: true,
     },
-
-    // Amount deducted at toll
+    // Validation: Ensure amount is never negative
     amount: {
         type: Number,
         required: true,
-        min: 0,
+        min: [0, 'Amount cannot be negative'],
     },
-
-    // Balance BEFORE transaction
     balanceBefore: {
         type: Number,
         required: true,
         min: 0,
     },
-
-    // Balance AFTER transaction
     balanceAfter: {
         type: Number,
         required: true,
         min: 0,
     },
-
-    // Transaction type
     transactionType: {
         type: String,
         enum: ['TOLL_DEBIT', 'RECHARGE'],
         default: 'TOLL_DEBIT',
     },
-
-    // Payment status
     status: {
         type: String,
         enum: ['SUCCESS', 'FAILED', 'PENDING'],
         default: 'SUCCESS',
     },
-
-    // Optional: location info
     location: {
         type: String,
         default: '',
@@ -70,6 +62,4 @@ const transactionSchema = new mongoose.Schema(
 }
 );
 
-const Transaction = mongoose.model('Transaction', transactionSchema);
-
-module.exports = mongoose.model("Transaction", transactionSchema);
+module.exports = mongoose.model("TollTransaction", transactionSchema);

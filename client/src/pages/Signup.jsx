@@ -7,7 +7,7 @@ import logo from "../assets/Track.png";
 function Signup() {
   const [formData, setFormData] = useState({
     name: "",
-    vehicleNumber: "", // match with backend code
+    vehicleNumber: "", 
     phone: "",
     email: "",
     password: ""
@@ -17,11 +17,19 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:5001/api/auth/register", formData);
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      // Sirf ye line change hui hai: http://localhost:5001 hata diya gaya hai
+      await axios.post("/api/auth/register", formData, config);
+
       alert("Account created successfully!");
       navigate("/signin");
-      
     } catch (error) {
+      console.error("Signup Error:", error.response);
       alert(error.response?.data?.message || "Registration failed");
     }
   };
