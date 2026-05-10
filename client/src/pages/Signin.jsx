@@ -12,16 +12,16 @@ function Signin() {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5001/api/auth/login", {
+      // Pehle ye tha: "http://localhost:5001/api/auth/login"
+      // Ab ye karo (sirf path):
+      const response = await axios.post("/api/auth/login", {
         email,
         password,
       });
       
-      // to save token
       localStorage.setItem("token", response.data.token);
       alert("Welcome back!");
-      navigate("/dashboard"); // Successful login 
-      // navigate("/");
+      navigate("/dashboard"); 
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
