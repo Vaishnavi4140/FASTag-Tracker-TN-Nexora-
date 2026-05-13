@@ -25,9 +25,9 @@
   color: black;
 }
 
-.signup-card {
+.signup-card-1 {
      width: 450px;
-    height: 540px;
+    height: 450px;
     background: white;
     padding: 25px;
     border-radius: 16px;
@@ -122,4 +122,105 @@ input {
   color: grey;
     text-align: center;
     margin-right: 15px;
+}
+
+.step-title {
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.otp-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.otp-row input {
+  flex: 1;
+}
+
+.small-btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.signup-card {
+  width: 450px;
+  min-height: 650px;
+}
+@media (max-width: 767px) 
+{
+   .signup-container {
+    padding: 20px 15px;
+    /* height: auto; */
+  }
+
+  .signup-card,
+  .signup-card-1 {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  
+
+  .logo-row h2 {
+    font-size: 22px;
+  }
+
+  .signup-card h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .subtext {
+    /* text-align: center; */
+    font-size: 14px;
+  }
+
+  .Back-To {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .Back-To a {
+    margin-right: 0;
+    font-size: 15px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .otp-row {
+    flex-direction: column;
+  }
+
+  .small-btn {
+    width: 100%;
+  }
+
+  .bottom {
+    font-size: 14px;
+  }
+
 }

@@ -23,6 +23,7 @@ const Navbar = () => {
 
         <div className="navbar-logo">
           <img src={logo} alt="logo" />
+          <h2>FastagTracker</h2>
         </div>
 
         <ul className="navbar-menu">
@@ -49,7 +50,7 @@ const Navbar = () => {
           }
 
           <Link to="/signup">
-            <button className="get-btn">Get Started</button>
+            <button className="get-btn-nav">Get Started</button>
           </Link>
 
         </div>

@@ -38,11 +38,11 @@ border-bottom: 1px solid #ddd;
     list-style: none;
     gap: 30px;
     margin-right: -16px;
-    font-size: 15px;
+    font-size: 17px;
    
 }
 .navbar-menu li {
-  color: #555;
+  color: #0d0c0c;
   cursor: pointer;
 }
 
@@ -65,23 +65,25 @@ border-bottom: 1px solid #ddd;
   padding: 12px 20px;
   border-radius: 25px;
   color: #000;
+  transition: 0.5s;
 }
 .login-btn:hover
 {
-     background-color: green;
+       background: linear-gradient(90deg, #0fc628, #c1ff63);
+
   color: white;
  border-radius: 25px;
  font-weight: 500;
  /* padding: 12px 18px; */
 }
-.get-btn {
-  background-color: #3b6ef5;
+.get-btn-nav {
+  background: linear-gradient(90deg, #4facfe, #6c63ff);
   color: white;
   border: none;
-  font-size: 15px;
-  padding: 8px 18px;
-  border-radius:12px;
+  padding: 12px 22px;
+  border-radius: 25px;
   cursor: pointer;
+  font-size: 18px;
  
 }
 
@@ -91,7 +93,7 @@ border-bottom: 1px solid #ddd;
   .navbar-inner {
     padding: 0 15px;
   }
- .navbar-logo span
+ .navbar-logo h2
  {
   display: none;
  }
@@ -109,7 +111,7 @@ border-bottom: 1px solid #ddd;
     padding: 12px 25px;
     background-color: white;
     font-size: 15px;
-    margin-right: -24px;
+    /* margin-right: -24px; */
     font-weight: 600;
     border: 2px solid black;
   }
@@ -132,6 +134,10 @@ border-bottom: 1px solid #ddd;
         margin-right: 0px;
     
   }
+  .navbar-logo h2
+ {
+  display: none;
+ }
   .navbar-menu li
   {
     font-size: 16px;
