@@ -22,7 +22,7 @@ function Home()
         <div className="container dashboard-inner">
         <div className="dashboard-left">
           <h1>
-            Track Every Toll <br />
+            Track Every Toll 
             Payment in One <br />
             Dashboard
           </h1>
@@ -44,19 +44,21 @@ function Home()
         </div>
       </div>
       </div>
-        <div className="card-container container">
+        <div className="card-container container ">
 
-        <div className="card">
+        <div className="card ">
           <div className="icon rupee">
-             <FaRupeeSign size={22} color="#3b82f6" />
+             <FaRupeeSign size={25} color="#3b82f6" />
             </div>
+            
           <p className="title">Total Toll Paid</p>
           <h2 className="value">₹12,450</h2>
+          
         </div>
 
         <div className="card">
           <div className="icon green">
-            <FaSlidersH size={22} color="#22c55e" />
+            <FaSlidersH size={25} color="#22c55e" />
           </div>
           <p className="title">Trips Recorded</p>
           <h2 className="value">82</h2>
@@ -64,7 +66,7 @@ function Home()
 
         <div className="card">
           <div className="icon yellow">
-            <FaDollarSign size={22} color="#f59e0b" />
+            <FaDollarSign size={25} color="#f59e0b" />
           </div>
           <p className="title">Last Toll</p>
           <h2 className="value">₹120</h2>
@@ -72,7 +74,7 @@ function Home()
 
         <div className="card">
           <div className="icon purple">
-            <FaCar size={22} color="#a855f7" />
+            <FaCar size={25} color="#a855f7" />
           </div>
           <p className="title">Vehicles Linked</p>
           <h2 className="value">2</h2>

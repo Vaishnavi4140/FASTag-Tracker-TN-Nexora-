@@ -5,35 +5,63 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/Track.png";
 
 function Signup() {
+
   const [formData, setFormData] = useState({
     name: "",
-    vehicleNumber: "", // match with backend code
     phone: "",
     email: "",
-    password: ""
+    password: "",
+    confirmPassword: "",
   });
+
+  const [step, setStep] = useState(1);
+
+  const [emailOtp, setEmailOtp] = useState("");
+  const [mobileOtp, setMobileOtp] = useState("");
+
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
+
     e.preventDefault();
+
+    if (
+      formData.password !==
+      formData.confirmPassword
+    ) {
+      return alert("Passwords do not match");
+    }
+
     try {
-      await axios.post("http://127.0.0.1:5001/api/auth/register", formData);
-      alert("Account created successfully!");
+
+      await axios.post(
+        "http://127.0.0.1:5001/api/auth/register",
+        formData
+      );
+
+      alert("Account created successfully");
+
       navigate("/signin");
-      
+
     } catch (error) {
-      alert(error.response?.data?.message || "Registration failed");
+
+      alert(
+        error.response?.data?.message ||
+        "Registration failed"
+      );
+
     }
   };
 
   return (
     <div className="signup-container">
-      <div className="Back-To">
-        
-          <Link to="/"> ←Back to Home</Link>
 
+      <div className="Back-To">
+        <Link to="/">← Back to Home</Link>
       </div>
-      <div className="signup-card">
+
+      <div className="signup-card-1">
+
         <div className="logo-row">
           <div className="logo-box">
             <img src={logo} alt="logo" />
@@ -41,65 +69,222 @@ function Signup() {
         </div>
 
         <h3>Create your account</h3>
-        <p className="subtext">Start tracking your tolls in under 60 seconds.</p>
 
-        <form onSubmit={handleSignup}> {/* Form submit handler */}
-          <label>Full name</label>
-          <div className="input-box">
-            <input 
-              type="text" 
-              placeholder="Aarav Sharma" 
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-            />
-          </div>
+        <p className="subtext">
+          Secure signup with email and mobile verification.
+        </p>
 
-          <div className="row">
-            <div className="field">
-              <label>Vehicle</label>
-              <div className="input-box">
-                <input 
-                  type="text" 
-                  placeholder="HR26-DK-8930" 
-                  onChange={(e) => setFormData({...formData, vehicleNumber: e.target.value})}
-                />
-              </div>
-            </div>
-            <div className="field">
-              <label>Phone</label>
-              <div className="input-box">
-                <input 
-                  type="text" 
-                  placeholder="+91 98765..." 
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                />
-              </div>
-            </div>
-          </div>
+        <form onSubmit={handleSignup}>
 
-          <label>Email</label>
-          <div className="input-box">
-            <input 
-              type="email" 
-              placeholder="you@tagpulse.io" 
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-            />
-          </div>
+          {
+            step === 1 && (
+              <>
 
-          <label>Password</label>
-          <div className="input-box">
-            <input 
-              type="password" 
-              placeholder="********" 
-              onChange={(e) => setFormData({...formData, password: e.target.value})}
-            />
-          </div>
+                <label>Full Name</label>
 
-          <button type="submit" className="btn">Create account →</button>
+                <div className="input-box">
+                  <input
+                    type="text"
+                    placeholder="Enter full name"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        name: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <label>Email Address</label>
+
+                <div className="input-box">
+                  <input
+                    type="email"
+                    placeholder="Enter email"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        email: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <label>Mobile Number</label>
+
+                <div className="input-box">
+                  <input
+                    type="text"
+                    placeholder="+91 9876543210"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        phone: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => {
+
+                    if (
+                      !formData.name ||
+                      !formData.email ||
+                      !formData.phone
+                    ) {
+                      return alert(
+                        "Please fill all fields"
+                      );
+                    }
+
+                    setStep(2);
+                  }}
+                >
+                  Next
+                </button>
+
+              </>
+            )
+          }
+
+          {
+            step === 2 && (
+              <>
+
+                <h4 className="step-title">
+                  OTP Verification
+                </h4>
+
+                <label>Email OTP</label>
+
+                <div className="otp-row">
+
+                  <input
+                    type="text"
+                    placeholder="Enter email OTP"
+                    onChange={(e) =>
+                      setEmailOtp(e.target.value)
+                    }
+                  />
+
+                  <button
+                    type="button"
+                    className="small-btn"
+                  >
+                    Send OTP
+                  </button>
+
+                </div>
+
+                <label>Mobile OTP</label>
+
+                <div className="otp-row">
+
+                  <input
+                    type="text"
+                    placeholder="Enter mobile OTP"
+                    onChange={(e) =>
+                      setMobileOtp(e.target.value)
+                    }
+                  />
+
+                  <button
+                    type="button"
+                    className="small-btn"
+                  >
+                    Send OTP
+                  </button>
+
+                </div>
+
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => {
+
+                    if (
+                      !emailOtp ||
+                      !mobileOtp
+                    ) {
+                      return alert(
+                        "Enter OTP first"
+                      );
+                    }
+
+                    setStep(3);
+                  }}
+                >
+                  Verify OTP
+                </button>
+
+              </>
+            )
+          }
+
+          {
+            step === 3 && (
+              <>
+
+                <h4 className="step-title">
+                  Create Password
+                </h4>
+
+                <label>Password</label>
+
+                <div className="input-box">
+                  <input
+                    type="password"
+                    placeholder="Enter password"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        password: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <label>Confirm Password</label>
+
+                <div className="input-box">
+                  <input
+                    type="password"
+                    placeholder="Confirm password"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        confirmPassword:
+                          e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn"
+                >
+                  Create Account
+                </button>
+
+              </>
+            )
+          }
+
         </form>
 
         <div className="bottom">
-          <p>Already a member? <Link to="/signin">Sign in</Link></p>
+          <p>
+            Already have an account?
+            <Link to="/signin">
+              Sign In
+            </Link>
+          </p>
         </div>
+
       </div>
     </div>
   );
