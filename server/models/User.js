@@ -24,9 +24,23 @@ const userSchema = new mongoose.Schema({
         required: [true, "Password is required"],
         minlength: [6, "Password must be at least 6 characters"],
     },
-    vehicleNumber: { type: String }, // Ye match hona chahiye frontend se
-  phone: { type: String }
-}, 
+    
+vehicleNumber: {
+    type: String,
+    required: true,
+    uppercase: true,
+    trim: true,
+    
+    match: [/^[A-Z]{2}[0-9]{2}[A-Z]{1,2}[0-9]{4}$/, 'Please fill a valid Indian vehicle number']
+},
+ phone: {
+    type: String,
+    required: [true, 'Phone number is required'],
+    unique: true, 
+    trim: true,
+    match: [/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian phone number']
+ }
+},
 { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

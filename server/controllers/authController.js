@@ -4,10 +4,7 @@ const User = require("../models/User");
 
 const registerUser = async (req, res) => {
   try {
-    // check frontend data
-    console.log("1111111 backend request");
-    console.log("111111111111", req.body);
-
+    
     const { name, email, password, vehicleNumber, phone } = req.body;
 
     // check if user already exists
