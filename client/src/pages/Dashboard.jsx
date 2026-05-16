@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
@@ -14,6 +13,7 @@ import {
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -48,15 +48,18 @@ const Dashboard = () => {
 
 return (
     <div className="dashboard-layout">
-        <Sidebar />
+        <Sidebar 
+            isMobileOpen={isMobileOpen}
+            setIsMobileOpen={setIsMobileOpen}
+        />
 
         <div className="dashboard-main">
-        <DashboardNavbar  />
+        <DashboardNavbar  setIsMobileOpen={setIsMobileOpen} />
 
         <div className="dashboard-content">
             <div className="dashboard-header">
-                <h1>Dashboard</h1>
-                <p>Welcome back! Here's your toll payment overview.</p>
+                <h1 className="dashboard-title">Dashboard</h1>
+                <p className="dashboard-subtitle">Welcome back! Here's your toll payment overview.</p>
             </div>
 
         <div className="cards-grid">
@@ -91,7 +94,7 @@ return (
                 icon={<DollarSign size={28} />}
                 title="Last Toll Deduction"
                 value="₹120"
-                subtitle="Today"
+                // subtitle="Today"
                 iconBg="#fff8e6"
                 iconColor="#d97706"
             />
