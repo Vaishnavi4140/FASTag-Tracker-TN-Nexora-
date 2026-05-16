@@ -1,0 +1,113 @@
+.tollhistory-content {
+    padding: 40px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* FILTER BOX */
+.filter-box {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e7eb;
+}
+
+.filters-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.filters-row select {
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #f3f4f6;
+}
+
+.apply-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* TRANSACTION CARD */
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.transaction-card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #e5e7eb;
+}
+
+.transaction-left {
+    display: flex;
+    gap: 20px;
+}
+
+.location-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e8edff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+}
+
+.highway {
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.details-row {
+    display: flex;
+    gap: 40px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.details-row div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.transaction-right {
+    text-align: right;
+}
+
+.transaction-right p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.transaction-right h2 {
+    color: #2563eb;
+    font-size: 28px;
+    font-weight: 700;
+}
