@@ -64,7 +64,9 @@ const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
             <NavLink
               to={item.path}
               key={index}
-              className="menu-item"
+              className={({ isActive }) =>
+                isActive ? "menu-item active" : "menu-item"
+              }
               onClick={() => setIsMobileOpen(false)}
             >
               <div className="menu-icon">{item.icon}</div>

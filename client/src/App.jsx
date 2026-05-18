@@ -11,6 +11,8 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import TollHistory from "./pages/TollHistory";
 import Vehicles from "./pages/Vehicles";
+import Analytics from "./pages/Analytics";
+import Profile from "./pages/Profile";
 
 function App() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -25,6 +27,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/vehicles" element={<Vehicles />} />
             <Route path="/toll-history" element={<TollHistory />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/profile" element={<Profile />} />
 
           </Routes>
     </BrowserRouter>

@@ -13,7 +13,7 @@ import {
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
+    // const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
 return (
     <div className="dashboard-layout">
-        <Sidebar 
+        {/* <Sidebar 
             isMobileOpen={isMobileOpen}
             setIsMobileOpen={setIsMobileOpen}
         />
@@ -56,7 +56,7 @@ return (
         <div className="dashboard-main">
         <DashboardNavbar  setIsMobileOpen={setIsMobileOpen} />
 
-        <div className="dashboard-content">
+        <div className="dashboard-content"> */}
             <div className="dashboard-header">
                 <h1 className="dashboard-title">Dashboard</h1>
                 <p className="dashboard-subtitle">Welcome back! Here's your toll payment overview.</p>
@@ -134,8 +134,8 @@ return (
             </table>
         </div>
     </div>
-    </div>
-</div>
+//     </div>
+// </div>
 );
 };
 export default Dashboard;
