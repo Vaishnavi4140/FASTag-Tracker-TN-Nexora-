@@ -35,7 +35,11 @@ const userSchema = new mongoose.Schema({
             /^[6-9]\d{9}$/,
             'Please enter a valid 10-digit Indian phone number'
         ]
-    }
+    },
+    balance: {
+    type: Number,
+    default: 0
+}
 
 },
 { timestamps: true });

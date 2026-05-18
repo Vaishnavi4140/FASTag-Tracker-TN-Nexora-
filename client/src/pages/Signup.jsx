@@ -8,7 +8,7 @@ function Signup() {
 
   const [formData, setFormData] = useState({
     name: "",
-   
+    
     phone: "",
     email: "",
     password: "",
