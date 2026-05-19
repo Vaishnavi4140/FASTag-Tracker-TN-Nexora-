@@ -1,29 +1,45 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import authRoutes from './routes/authRoutes.js';
-import tollRoutes from './routes/tollRoutes.js';
+
+// Routes Imports
+import authRoutes from "./routes/authRoutes.js";
+import tollRoutes from "./routes/tollRoutes.js";
+import vehicleRoutes from "./routes/vehicleRoutes.js"; // Aapka naya route
 
 dotenv.config();
+
+console.log("MONGO_URI:", process.env.MONGO_URI);
 
 const startServer = async () => {
   await connectDB();   // wait for DB
 
-    const app = express();
-    app.use(express.json());
+  const app = express();
+  
+  app.use(cors({
+    origin: "http://localhost:5173", 
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+  }));
 
-    app.use('/api/auth', authRoutes);
-    app.use('/api/toll', tollRoutes);
+  app.use(express.json());
 
-    app.get("/", (req, res) => {
-        res.send("API is running...");
-    });
+  // Routes connections
+  app.use('/api/auth', authRoutes);
+  app.use('/api/toll', tollRoutes);
+  app.use('/api/vehicles', vehicleRoutes); // Registering your new route
 
-    const PORT = process.env.PORT || 5001;
+  app.get("/", (req, res) => {
+      res.send("API is running...");
+  });
 
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
+  const PORT = process.env.PORT || 5001;
+
+  app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+  });
 };
 
 startServer();

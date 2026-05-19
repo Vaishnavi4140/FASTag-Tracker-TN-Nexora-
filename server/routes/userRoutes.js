@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {
   getAllUsers,
-  getUserById,
+  getUserByI
 } = require("../controllers/userController");
 
 
