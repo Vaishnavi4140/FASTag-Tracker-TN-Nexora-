@@ -12,8 +12,6 @@ function Signin() {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      // Pehle ye tha: "http://localhost:5001/api/auth/login"
-      // Ab ye karo (sirf path):
       const response = await axios.post("/api/auth/login", {
         email,
         password,
@@ -74,7 +72,7 @@ function Signin() {
         </div>
         
         {/*r onClick handler on button */}
-        <button className="btn" onClick={handleSignin}>Sign in →</button>
+        <button type="button" className="btn" onClick={handleSignin}>Sign in →</button>
 
         <p className="bottomText">
           Don't have an account?<Link to="/signup">Sign up free</Link> 
