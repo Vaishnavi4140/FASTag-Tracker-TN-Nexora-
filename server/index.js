@@ -30,7 +30,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/transactions", tollRoutes);
 app.use("/api/users", userRoutes);
 
-app.use("/api/vehicles", vehicleRoutes); 
+// app.use("/api/vehicles", vehicleRoutes); 
 
 app.get("/", (req, res) => {
   res.send("API running");
