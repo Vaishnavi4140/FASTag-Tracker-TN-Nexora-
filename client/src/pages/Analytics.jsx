@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Analytics.css";
 
 import Sidebar from "../components/Sidebar";
@@ -34,6 +34,8 @@ import {
 } from "recharts";
 
 const Analytics = () => {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
   const monthlyData = [
     { month: "Sep", amount: 1800 },
     { month: "Oct", amount: 2100 },
@@ -88,10 +90,15 @@ const Analytics = () => {
 
   return (
     <div className="dashboard-layout">
-      <Sidebar />
+      <Sidebar 
+        isMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+      />
 
       <div className="dashboard-main">
-        <DashboardNavbar />
+        <DashboardNavbar 
+          setIsMobileOpen={setIsMobileOpen}
+        />
 
         <div className="analytics-content">
 
