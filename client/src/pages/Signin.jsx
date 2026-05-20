@@ -19,7 +19,7 @@ function Signin() {
       
       localStorage.setItem("token", response.data.token);
       alert("Welcome back!");
-      navigate("/dashboard"); 
+      navigate("/vehicles"); 
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }

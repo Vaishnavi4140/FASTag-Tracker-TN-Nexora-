@@ -21,7 +21,7 @@ const Dashboard = () => {
         if (!token) {
             navigate("/signin");
         }
-    }, []);
+    }, [navigate]);
     const transactions = [
     {
         date: "Mar 5, 2026",

@@ -8,8 +8,6 @@ import {
     Car,
     BarChart3,
     User,
-    Menu,
-    X,
 } from "lucide-react";
 
 const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
