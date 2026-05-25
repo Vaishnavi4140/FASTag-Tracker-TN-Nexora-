@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import "../styles/Vehicles.css";
@@ -12,6 +13,8 @@ import {
 } from "lucide-react";
 
 const Vehicles = () => {
+  const navigate = useNavigate();
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const vehicles = [
     {
@@ -35,11 +38,16 @@ const Vehicles = () => {
   return (
     <div className="dashboard-layout">
 
-      <Sidebar />
+      <Sidebar 
+        isMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+      />
 
       <div className="dashboard-main">
 
-        <DashboardNavbar />
+        <DashboardNavbar 
+          setIsMobileOpen={setIsMobileOpen}
+        />
 
         <div className="dashboard-content">
 
@@ -50,7 +58,10 @@ const Vehicles = () => {
               <p>Manage all your linked vehicles and FASTag accounts.</p>
             </div>
 
-            <button className="add-vehicle-btn">
+            <button
+              className="add-vehicle-btn"
+              onClick={() => navigate("/add-vehicle")}
+            >
               <Plus size={18} />
               Add Vehicle
             </button>

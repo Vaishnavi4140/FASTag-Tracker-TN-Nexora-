@@ -35,11 +35,7 @@ function Signup() {
 
     try {
 
-      await axios.post(
-        "http://127.0.0.1:5001/api/auth/register",
-        formData
-      );
-
+      await axios.post("/api/auth/register", formData);
       alert("Account created successfully");
 
       navigate("/signin");

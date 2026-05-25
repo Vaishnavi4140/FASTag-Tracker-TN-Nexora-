@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Sidebar.css";
-import {  NavLink, useLocation } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import logo from "../assets/Track.png";
 import {
     LayoutDashboard,
@@ -8,8 +8,6 @@ import {
     Car,
     BarChart3,
     User,
-    Menu,
-    X,
 } from "lucide-react";
 
 const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
@@ -56,7 +54,7 @@ const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
 
       <div className={`sidebar ${isMobileOpen ? "mobile-open" : ""}`}>
         <div className="sidebar-logo">
-          <h2>TollTrack</h2>
+          <img src={logo} alt="TollTrack Logo" className="logo-img" />
         </div>
 
         <div className="sidebar-menu">

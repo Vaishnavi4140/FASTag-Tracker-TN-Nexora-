@@ -22,7 +22,7 @@ return (
             {icon}
         </div>
 
-        {growth && <span className="growth-text">{growth}</span>}
+        {growth && (<span className="growth-text">{growth}</span>)}
         </div>
 
         <div className="card-body">

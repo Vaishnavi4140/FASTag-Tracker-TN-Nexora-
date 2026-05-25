@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import "../styles/TollHistory.css";
 import { MapPin, Calendar, Car } from "lucide-react";
 
 const TollHistory = () => {
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
+
     const transactions = [
         {
             plaza: "Navi Mumbai Toll Plaza",
@@ -28,10 +30,15 @@ const TollHistory = () => {
 
     return (
         <div className="dashboard-layout">
-            <Sidebar />
+            <Sidebar 
+                isMobileOpen={isMobileOpen}
+                setIsMobileOpen={setIsMobileOpen}
+            />
 
             <div className="dashboard-main">
-                <DashboardNavbar />
+                <DashboardNavbar 
+                    setIsMobileOpen={setIsMobileOpen}
+                />
 
                 <div className="tollhistory-content">
                     <div className="page-header">

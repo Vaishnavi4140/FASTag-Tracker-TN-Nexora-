@@ -23,7 +23,9 @@ function Home()
         <div className="dashboard-left">
           <h1>
             Track Every Toll 
-            Payment in One <br />
+            <br />
+            Payment in One 
+            <br />
             Dashboard
           </h1>
 

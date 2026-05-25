@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #f5f7fb;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .dashboard-navbar {
     height: 80px;
     background: white;
@@ -6,6 +14,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 36px;
+    position: relative;
+    z-index: 1000;
 }
 
 .search-box {
@@ -208,13 +218,27 @@
     display: inline-block;
 }
 
-/* REMOVE LAST BORDER */
-
 .transactions-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* RESPONSIVE */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #111827;
+    position: relative;
+    z-index: 1001;
+}
+
+.dashboard-main {
+    flex: 1;
+    margin-left: 240px;
+    min-width: 0;
+    /* width: calc(100% - 240px); */
+    transition: 0.3s ease;
+}
 
 @media (max-width: 1200px) {
     .cards-grid {
@@ -223,48 +247,70 @@
 }
 
 @media (max-width: 768px) {
+    .dashboard-main {
+        margin-left: 0;
+        width: 100%;
+    }
 
     .dashboard-content {
-        padding: 20px;
+        padding: 20px 16px;
+    }
+
+    .dashboard-navbar {
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .search-box {
+        flex: 1;
+        width: auto;
+        height: 42px;
+        min-width: 0;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .navbar-right-dashboard {
+        gap: 12px;
     }
 
     .cards-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
-    .transactions-table {
-        display: block;
+    .dashboard-layout {
+        overflow-x: hidden;
+    }
+
+    .dashboard-card {
+        padding: 22px;
+    }
+
+    .card-body h2 {
+        font-size: 28px;
+    }
+
+    .transactions-section {
         overflow-x: auto;
     }
 
-    .transactions-table th,
-    .transactions-table td {
-        white-space: nowrap;
+    .transactions-table {
+        width: 100%;
+        min-width: 600px;
     }
-}
-
-.dashboard-main {
-    margin-left: 240px;
-    width: calc(100% - 240px);
 }
 
 .dashboard-layout {
     display: flex;
 }
 
-/* .layout {
-    display: flex;
-} */
-
-.main-content {
-    flex: 1;
-    margin-left: 240px;
-    transition: 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .dashboard-main {
-        margin-left: 0;
-        width: 100%;
-    }
-}
