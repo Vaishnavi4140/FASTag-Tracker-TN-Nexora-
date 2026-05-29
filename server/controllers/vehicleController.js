@@ -3,10 +3,10 @@ import Vehicle from "../models/Vehicle.js";
 // 1. Store Data: Register/Add a new vehicle
 export const addVehicle = async (req, res) => {
     try {
-        const { vehicleNumber, vehicleType, tagId, fasTagBalance } = req.body;
+        const { user, vehicleNumber, vehicleType, tagId, fasTagBalance } = req.body;
 
         const existingVehicle = await Vehicle.findOne({ 
-            $or: [{ vehicleNumber: vehicleNumber.toUpperCase() }, { tagId }] 
+            $or: [{ user, vehicleNumber: vehicleNumber.toUpperCase() }, { tagId }] 
         });
         
         if (existingVehicle) {

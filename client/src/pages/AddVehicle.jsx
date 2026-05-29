@@ -1,18 +1,33 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/AddVehicle.css";
 import logo from "../assets/Track.png";
+import vehicleImage from "../assets/vehicle-illustration.png";
 
 const AddVehicle = () => {
+  const navigate = useNavigate();
+
   const [vehicleNumber, setVehicleNumber] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    navigate("/vehicle-details", {
+      state: {
+        vehicleNumber,
+        registeredPhone: phoneNumber,
+      },
+    });
+
     console.log({
       vehicleNumber,
       phoneNumber,
+      // model: "Not Added",
+      // fastag: "Paytm FASTag",
+      // fuel: "Petrol",
+      // expiry: "Dec 2026",
+      // status: "Active",
     });
 
     alert("Vehicle Added Successfully");
@@ -20,18 +35,18 @@ const AddVehicle = () => {
 
   return (
     <div className="add-vehicle-page">
+      <div className="add-vehicle-container">
+
+      <Link to="/vehicles" className="back-home">
+        ← Back to Vehicles
+      </Link>
 
       <div className="add-vehicle-card">
 
-        <Link to="/vehicles" className="back-home">
-          ← Back to Vehicles
-        </Link>
-
-        <img
-          src={logo}
-          alt="logo"
-          className="vehicle-logo"
-        />
+        <div className="vehicle-logo">
+          <img src={logo} alt="logo" />
+          {/* <h2>FastagTracker</h2> */}
+        </div>
 
         <h1>Add Vehicle</h1>
 
@@ -66,15 +81,13 @@ const AddVehicle = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="add-vehicle-submit"
-          >
+          <button type="submit" className="add-vehicle-submit" >
             Add Vehicle →
           </button>
 
         </form>
 
+        </div>
       </div>
     </div>
   );

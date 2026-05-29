@@ -2,6 +2,10 @@ import React from "react";
 import { Bell, Search, Menu } from "lucide-react";
 
 const DashboardNavbar = ({ setIsMobileOpen }) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const userInitial = user?.name?.charAt(0).toUpperCase() || "U";
+    
 return (
 <div className="dashboard-navbar">
 
@@ -25,7 +29,7 @@ onClick={() => setIsMobileOpen(true)}
 </div>
 
 <div className="profile-circle">
-JD
+{userInitial}
 </div>
 
 </div>

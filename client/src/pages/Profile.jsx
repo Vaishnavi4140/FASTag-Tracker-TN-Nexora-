@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import "../styles/Profile.css";
@@ -17,6 +18,13 @@ import {
 
 const Profile = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+
+    navigate("/");
+  };
 
   return (
     <div className="dashboard-layout">
@@ -45,7 +53,7 @@ const Profile = () => {
               <p>Member since January 15, 2026</p>
 
               <button className="primary-btn">Edit Profile</button>
-              <button className="danger-btn">Logout</button>
+              <button className="danger-btn" onClick={handleLogout}>Logout</button>
             </div>
 
             {/* RIGHT SECTION */}

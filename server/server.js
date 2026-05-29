@@ -6,7 +6,7 @@ import connectDB from "./config/db.js";
 // Routes Imports
 import authRoutes from "./routes/authRoutes.js";
 import tollRoutes from "./routes/tollRoutes.js";
-import vehicleRoutes from "./routes/vehicleRoutes.js"; // Aapka naya route
+import vehicleRoutes from "./routes/vehicleRoutes.js"; 
 
 dotenv.config();
 
