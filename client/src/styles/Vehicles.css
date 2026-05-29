@@ -39,8 +39,11 @@
 .vehicle-card {
     background: white;
     border-radius: 28px;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid #e5e7eb;
+    max-width: 300px;
+    width: 100%;
+    /* max-height: 350px; */
 }
 
 .vehicle-top {
@@ -127,7 +130,7 @@
 }
 
 .transactions-header {
-  padding: 32px 40px;
+  padding: 20px 30px;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -148,14 +151,14 @@
 
 .transactions-table th {
   text-align: left;
-  padding: 24px 32px;
+  padding: 20px 32px;
   color: #6b7280;
   font-size: 16px;
   font-weight: 600;
 }
 
 .transactions-table td {
-  padding: 26px 32px;
+  padding: 20px 32px;
   border-bottom: 1px solid #e5e7eb;
   font-size: 16px;
   color: #111827;

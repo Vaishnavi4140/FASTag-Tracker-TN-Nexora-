@@ -14,8 +14,8 @@ const AppRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
 
-        {/* Dashboard Route */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/vehicle-details" element={<VehicleDetails />}/>
       </Routes>
     </BrowserRouter>
   );
