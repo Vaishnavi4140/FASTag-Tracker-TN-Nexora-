@@ -1,61 +1,32 @@
-import Vehicle from "../models/Vehicle.js";
+const Vehicle = require("../models/Vehicle");
 
-// 1. Store Data: Register/Add a new vehicle
-export const addVehicle = async (req, res) => {
-    try {
-        const { user, vehicleNumber, vehicleType, tagId, fasTagBalance } = req.body;
+const addVehicle = async (req, res) => {
+  try {
+    const vehicle = await Vehicle.create(req.body);
 
-        const existingVehicle = await Vehicle.findOne({ 
-            $or: [{ user, vehicleNumber: vehicleNumber.toUpperCase() }, { tagId }] 
-        });
-        
-        if (existingVehicle) {
-            return res.status(400).json({ 
-                success: false, 
-                message: "Vehicle number or FASTag ID already registered" 
-            });
-        }
-
-        const newVehicle = new Vehicle({
-            user: req.body.userId || req.user?.id, 
-            vehicleNumber,
-            vehicleType,
-            tagId,
-            fasTagBalance
-        });
-
-        await newVehicle.save();
-
-        res.status(201).json({
-            success: true,
-            message: "Vehicle registered successfully",
-            data: newVehicle
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error storing vehicle data",
-            error: error.message
-        });
-    }
+    res.status(201).json(vehicle);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
-// 2. Test Fetching: Get all vehicles for a specific user
-export const getUserVehicles = async (req, res) => {
-    try {
-        const userId = req.params.userId || req.user?.id;
-        const vehicles = await Vehicle.find({ user: userId });
+const getUserVehicles = async (req, res) => {
+  try {
+    const vehicles = await Vehicle.find({
+      user: req.params.userId,
+    });
 
-        res.status(200).json({
-            success: true,
-            count: vehicles.length,
-            data: vehicles
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error fetching vehicle data",
-            error: error.message
-        });
-    }
+    res.json(vehicles);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+module.exports = {
+  addVehicle,
+  getUserVehicles,
 };
