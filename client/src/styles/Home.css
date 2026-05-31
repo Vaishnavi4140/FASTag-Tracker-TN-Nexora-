@@ -1,21 +1,41 @@
 
 .das {
+  position: relative;
+overflow: hidden;
   
   padding: 70px 0px;
   background-color: #9fb9ed43;
 
- 
+ background: transparent;
   background-image: 
     linear-gradient(#e5e7eb 1px, transparent 1px),
-    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
-  background-size: 30px 30px;
+    linear-gradient(90  deg, #e5e7eb 1px, transparent 1px);
+  background-size: 50px 50px;
 }
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
 
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+  z-index: 0;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
 .dashboard-inner {
+  position: relative;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 50px; */
 }
   .dashboard-left
   {
@@ -29,18 +49,15 @@
 .dashboard-left h1 {
   font-size: 50px;
   font-weight: 600;
-  color: #0f172a;
-  /* line-height: 1.2; */
+  color: white;
 }
-
 .dashboard-left p {
   margin-top: 20px;
-  color: #555;
+  color: #f1f5f9;
   font-size: 25px;
   max-width: 500px;
   line-height: 35px;
 }
-
 
 .dashboard-buttons {
   margin-top: 30px;
@@ -76,10 +93,13 @@
 }
 
 
-.dashboard-right img {
-  width: 600px;
-  border-radius: 20px;
- 
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .card-container {
   display: grid;
@@ -643,7 +663,10 @@ line-height: 1.5;
 
 
 @media (max-width: 750px) {
-
+.dashboard-left,
+.dashboard-right {
+  margin: 0;
+}
 
 .das{
   margin-top: 0;
@@ -823,6 +846,10 @@ line-height: 1.5;
 }
 @media(min-width: 768px) and (max-width: 1024px){
 
+  .dashboard-left,
+.dashboard-right {
+  margin: 0;
+}
 .das
 {
   margin-top: 0px;

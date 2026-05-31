@@ -19,6 +19,12 @@ function Home()
        
         <div className="dashboard-wrapper ">
            <div className="das">
+            <video className="bg-video" autoPlay muted loop playsInline>
+    <source src="/videos/fastag.mp4" type="video/mp4" />
+  </video>
+
+  <div className="video-overlay"></div>
+
         <div className="container dashboard-inner">
         <div className="dashboard-left">
           <h1>
@@ -42,7 +48,7 @@ function Home()
 
        
         <div className="dashboard-right">
-          <img src={Road} alt="road" />
+          {/* <img src={Road} alt="road" /> */}
         </div>
       </div>
       </div>

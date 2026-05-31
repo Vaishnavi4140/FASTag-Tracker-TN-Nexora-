@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import "../styles/Vehicles.css";
+import axios from "axios";
 
 import {
   Car,
@@ -14,65 +15,44 @@ import {
 
 const Vehicles = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    const newVehicle = location.state?.vehicle;
+    const fetchVehicles = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
 
-    if (!newVehicle?.vehicleNumber) return;
+        if (!userId) return;
 
-    const formattedVehicle = {
-      number: newVehicle.vehicleNumber,
-      vehicleType: newVehicle.vehicleType || "",
-      model: newVehicle.model || "",
-      fastag: newVehicle.tagId || "",
-      fuel: newVehicle.fuelType || "",
-      expiry: newVehicle.expiry || "",
-      status: newVehicle.status || "Active",
-      driverName: newVehicle.driverName || "",
+        const res = await axios.get(
+          `http://localhost:5001/api/vehicles/user/${userId}`
+        );
+
+        setVehicles(res.data);
+      } catch (error) {
+        console.log("Error fetching vehicles:", error);
+      }
     };
 
-    setVehicles((prevVehicles) => {
-      const exists = prevVehicles.some(
-        (vehicle) =>
-          vehicle.number === newVehicle.vehicleNumber
-      );
-
-      if (exists) {
-        return prevVehicles.map((vehicle) =>
-          vehicle.number === newVehicle.vehicleNumber
-            ? formattedVehicle
-            : vehicle
-        );
-      }
-
-      return [...prevVehicles, formattedVehicle];
-    });
-
-  }, [location.state]);
+    fetchVehicles();
+  }, []);
 
   return (
     <div className="dashboard-layout">
-
       <Sidebar
         isMobileOpen={isMobileOpen}
         setIsMobileOpen={setIsMobileOpen}
       />
 
       <div className="dashboard-main">
-
         <DashboardNavbar
           setIsMobileOpen={setIsMobileOpen}
         />
 
         <div className="dashboard-content">
-
           <div className="vehicles-header">
-
             <div>
               <h1>Vehicles</h1>
               <p>
@@ -87,23 +67,19 @@ const Vehicles = () => {
               <Plus size={18} />
               Add Vehicle
             </button>
-
           </div>
 
           {vehicles.length === 0 ? (
-            <p>No vehicles added yet.</p>
+            <p>No vehicles found.</p>
           ) : (
             <>
               <div className="vehicles-grid">
-
-                {vehicles.map((vehicle, index) => (
+                {vehicles.map((vehicle) => (
                   <div
                     className="vehicle-card"
-                    key={index}
+                    key={vehicle._id}
                   >
-
                     <div className="vehicle-top">
-
                       <div className="vehicle-icon">
                         <Car size={30} />
                       </div>
@@ -111,81 +87,69 @@ const Vehicles = () => {
                       <span className="vehicle-status">
                         {vehicle.status}
                       </span>
-
                     </div>
 
-                    <h2>{vehicle.number}</h2>
+                    <h2>{vehicle.vehicleNumber}</h2>
 
                     <p className="vehicle-model">
-                      {vehicle.model}
+                      {vehicle.category}
                     </p>
 
                     <div className="vehicle-details">
-
                       <div className="vehicle-detail">
                         <ShieldCheck size={18} />
-                        <span>{vehicle.fastag}</span>
+                        <span>{vehicle.tagId}</span>
                       </div>
 
                       <div className="vehicle-detail">
                         <Fuel size={18} />
-                        <span>{vehicle.fuel}</span>
+                        <span>{vehicle.vehicleType}</span>
                       </div>
 
                       <div className="vehicle-detail">
                         <Calendar size={18} />
-                        <span>{vehicle.expiry}</span>
+                        <span>
+                          ₹{vehicle.fasTagBalance}
+                        </span>
                       </div>
-
                     </div>
-
                   </div>
                 ))}
-
               </div>
 
               <div className="transactions-section">
-
                 <div className="transactions-header">
                   <h2>Vehicle Details</h2>
                 </div>
 
                 <table className="transactions-table">
-
                   <thead>
                     <tr>
                       <th>Vehicle Number</th>
                       <th>Vehicle Type</th>
-                      <th>Model</th>
+                      <th>Category</th>
                       <th>FASTag Provider</th>
-                      <th>Driver Name</th>
-                      <th>Fuel Type</th>
-                      <th>Expiry</th>
+                      <th>Balance</th>
                       <th>Status</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    {vehicles.map((vehicle, index) => (
-                      <tr key={index}>
-                        <td>{vehicle.number}</td>
+                    {vehicles.map((vehicle) => (
+                      <tr key={vehicle._id}>
+                        <td>{vehicle.vehicleNumber}</td>
                         <td>{vehicle.vehicleType}</td>
-                        <td>{vehicle.model}</td>
-                        <td>{vehicle.fastag}</td>
-                        <td>{vehicle.driverName}</td>
-                        <td>{vehicle.fuel}</td>
-                        <td>{vehicle.expiry}</td>
+                        <td>{vehicle.category}</td>
+                        <td>{vehicle.tagId}</td>
+                        <td>₹{vehicle.fasTagBalance}</td>
                         <td>{vehicle.status}</td>
                       </tr>
                     ))}
                   </tbody>
-
                 </table>
-
               </div>
             </>
           )}
-
         </div>
       </div>
     </div>
