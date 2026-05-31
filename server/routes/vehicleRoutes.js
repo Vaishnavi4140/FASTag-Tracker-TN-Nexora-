@@ -7,6 +7,7 @@ const router = express.Router();
 // Endpoint: POST /api/vehicles/add
 router.post("/add", addVehicle);
 
+
 // Endpoint: GET /api/vehicles/user/:userId
 router.get("/user/:userId", getUserVehicles);
 

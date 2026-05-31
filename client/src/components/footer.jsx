@@ -9,7 +9,6 @@ const Footer = () => {
         
       <div className="footer-top container">
 
-        z
         <div className="footer-brand">
           <div className="logo-box">
             <img src={logo} alt="logo" />

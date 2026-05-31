@@ -5,6 +5,11 @@ import Road from "../assets/Road.jpg";
 import phone from "../assets/phone.jpg";
 import view from "../assets/view.jpg";
 import car from "../assets/car.jpg";
+import tarunImg from "../assets/tarun.jpeg";
+import PSPImg from "../assets/Pushpendra.jpeg";
+import vaishnaviImg from "../assets/vaishnavi.jpeg";
+import AmanImg from "../assets/aman.png";
+import bgVideo from "../assets/fastag-video.mp4";
 
 import Footer from "../components/Footer";
 import { FaRupeeSign, FaSlidersH, FaDollarSign, FaCar , FaChartLine,FaEnvelope, FaTachometerAlt ,FaBullseye, FaEye, FaHeart, FaUser, FaShieldAlt } from "react-icons/fa";
@@ -19,6 +24,11 @@ function Home()
        
         <div className="dashboard-wrapper ">
            <div className="das">
+            <video className="bg-video" autoPlay muted loop playsInline>
+              <source src={bgVideo} type="video/mp4" />
+            </video>
+          <div className="video-overlay"></div>
+
         <div className="container dashboard-inner">
         <div className="dashboard-left">
           <h1>
@@ -42,14 +52,14 @@ function Home()
 
        
         <div className="dashboard-right">
-          <img src={Road} alt="road" />
+          {/* <img src={Road} alt="road" /> */}
         </div>
       </div>
       </div>
-        <div className="card-container container ">
+        <div className="home-card-container container ">
 
-        <div className="card ">
-          <div className="icon rupee">
+        <div className="home-card ">
+          <div className="home-icon rupee">
              <FaRupeeSign size={25} color="#3b82f6" />
             </div>
             
@@ -58,24 +68,24 @@ function Home()
           
         </div>
 
-        <div className="card">
-          <div className="icon green">
+        <div className="home-card">
+          <div className="home-icon green">
             <FaSlidersH size={25} color="#22c55e" />
           </div>
           <p className="title">Trips Recorded</p>
           <h2 className="value">82</h2>
         </div>
 
-        <div className="card">
-          <div className="icon yellow">
+        <div className="home-card">
+          <div className="home-icon yellow">
             <FaDollarSign size={25} color="#f59e0b" />
           </div>
           <p className="title">Last Toll</p>
           <h2 className="value">₹120</h2>
         </div>
 
-        <div className="card">
-          <div className="icon purple">
+        <div className="home-card">
+          <div className="home-icon purple">
             <FaCar size={25} color="#a855f7" />
           </div>
           <p className="title">Vehicles Linked</p>
@@ -297,8 +307,8 @@ function Home()
      </div>
      <div className="about-section  ">
         <div className="about-heading container">
-          <h2>About TollTrack</h2>
-          <p>Founded in 2024, TollTrack is revolutionizing how Indians manage their toll expenses. <br />  We're on a mission to bring financial clarity to every journey.</p>
+          <h2>About FastagTracker</h2>
+          <p>Founded in 2026, FastagTracker is revolutionizing how Indians manage their toll expenses. <br />  We're on a mission to bring financial clarity to every journey.</p>
           </div> 
         <div className="about-card-container container">
           <div className="about-card">
@@ -358,48 +368,47 @@ function Home()
           <div className="team-card-container">
             <div className="team-card">
               <div className="team-img">
-                 <h2>PS</h2>
-              </div>
-              <h2>Priya Sharma</h2>
+                 <img src={tarunImg} alt="Tarun Nigam" />
+              </div> 
+              <h2>Tarun Nigam</h2>
               <div className="designation">
-                <p >Founder & CEO</p>
+                <p >Founder of TN-Nexora technologies and FastTag Tracker</p>
               </div>
-              <p>Ex-Google engineer with a passion for fintech innovation</p>
+              <p>Experienced in client management, with a proven track record of working with multinational clients and driving business growth through technology solutions.</p>
 
             </div>
             <div className="team-card">
              <div className="team-img">
-                 <h2>PS</h2>
+                 <img src={PSPImg} alt="Tarun Nigam" />
               </div>
-              <h2>Priya Sharma</h2>
+              <h2>Prushpendra Singh Parihar</h2>
              <div className="designation">
-                <p >Founder & CEO</p>
+                <p >BBackend Developer (Node.js)</p>
               </div>
-              <p>Ex-Google engineer with a passion for fintech innovation</p>
+              <p>Develops server-side functionality and APIs using Node.js. Ensures smooth and secure application performance.</p>
+            </div>
+
+            <div className="team-card">
+              <div className="team-img">
+                 <img src={vaishnaviImg} alt="Tarun Nigam" />
+              </div>
+              <h2>Vaishnavi</h2>
+              <div className="designation">
+                <p >Frontend developer(UI-UX)</p>
+              </div>
+              <p>Designs user-friendly and responsive interfaces. Focuses on creating an attractive and seamless user experience.</p>
 
             </div>
 
             <div className="team-card">
               <div className="team-img">
-                 <h2>PS</h2>
+                <img src={AmanImg} alt="Tarun Nigam" />
               </div>
-              <h2>Priya Sharma</h2>
+              <h2>Aman Pal</h2>
               <div className="designation">
-                <p >Founder & CEO</p>
+                <p >Database Administrator (MongoDB & SQL)</p>
               </div>
-              <p>Ex-Google engineer with a passion for fintech innovation</p>
-
-            </div>
-
-            <div className="team-card">
-              <div className="team-img">
-                <h2>PS</h2>
-              </div>
-              <h2>Priya Sharma</h2>
-              <div className="designation">
-                <p >Founder & CEO</p>
-              </div>
-              <p>Ex-Google engineer with a passion for fintech innovation</p>
+              <p>Manages and maintains MongoDB and SQL databases. Ensures secure, efficient, and reliable data storage.</p>
 
             </div>
 
@@ -411,7 +420,7 @@ function Home()
             <div className="about-story-heading">
                <h2>Our Story</h2>
                 <p>
-          TollTrack was born from a simple frustration: tracking toll expenses
+          FastagTracker was born from a simple frustration: tracking toll expenses
           in India was unnecessarily complicated. Our founders, frequent highway
           travelers themselves, realized that while FASTag had digitized
           payments, no one had built a comprehensive solution to track, analyze,
@@ -420,7 +429,7 @@ function Home()
                 <p>
           What started as a weekend project quickly grew into a mission to help
           millions of Indians gain better control over their transportation
-          expenses. Today, TollTrack processes over ₹100 crores in toll
+          expenses. Today, FastagTracker processes over ₹100 crores in toll
           transactions annually and helps families, businesses, and fleet
           operators save money and time.
                 </p>
@@ -444,9 +453,5 @@ function Home()
    </>
   );
 }
-
-    
-        
-    
 
 export default Home;

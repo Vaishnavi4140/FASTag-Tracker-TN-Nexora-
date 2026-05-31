@@ -3,7 +3,29 @@ import Vehicle from "../models/Vehicle.js";
 // 1. Store Data: Register/Add a new vehicle
 export const addVehicle = async (req, res) => {
     try {
-        const { user, vehicleNumber, vehicleType, tagId, fasTagBalance } = req.body;
+        const {
+            user,
+            ownerName,
+            vehicleNumber,
+            mobileNumber,
+            fastagBank,
+            vehicleType,
+            category,
+            leaseStatus,
+            tagId,
+            fasTagBalance,
+            lastTollDeduction,
+            monthlyTollExpense,
+            fleetManager,
+            model,
+            } = req.body;
+
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: "User ID is required",
+            });
+        }
 
         const existingVehicle = await Vehicle.findOne({ 
             $or: [{ user, vehicleNumber: vehicleNumber.toUpperCase() }, { tagId }] 
@@ -17,11 +39,20 @@ export const addVehicle = async (req, res) => {
         }
 
         const newVehicle = new Vehicle({
-            user: req.body.userId || req.user?.id, 
+            user: req.body.user || req.user?.id, 
+            ownerName,
             vehicleNumber,
+            mobileNumber,
+            fastagBank,
             vehicleType,
+            category,
+            leaseStatus,
             tagId,
-            fasTagBalance
+            fasTagBalance,
+            lastTollDeduction,
+            monthlyTollExpense,
+            fleetManager,
+            model,
         });
 
         await newVehicle.save();
@@ -43,7 +74,7 @@ export const addVehicle = async (req, res) => {
 // 2. Test Fetching: Get all vehicles for a specific user
 export const getUserVehicles = async (req, res) => {
     try {
-        const userId = req.params.userId || req.user?.id;
+        const { userId } = req.params;
         const vehicles = await Vehicle.find({ user: userId });
 
         res.status(200).json({

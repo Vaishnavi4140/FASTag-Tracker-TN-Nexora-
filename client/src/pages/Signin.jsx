@@ -19,7 +19,16 @@ function Signin() {
       console.log(response.data);
       
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
+
+      localStorage.setItem(
+        "userId",
+        response.data.user._id
+      );
       alert("Welcome back!");
       navigate("/vehicles"); 
     } catch (error) {

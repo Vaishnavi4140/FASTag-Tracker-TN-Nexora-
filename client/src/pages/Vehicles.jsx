@@ -1,70 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
+
 import "../styles/Vehicles.css";
 
 import {
   Car,
   Plus,
-  Fuel,
-  Calendar,
   ShieldCheck,
 } from "lucide-react";
 
+import axios from "axios";
+
 const Vehicles = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    const newVehicle = location.state?.vehicle;
+    fetchVehicles();
+  }, []);
 
-    if (!newVehicle?.vehicleNumber) return;
+  const fetchVehicles = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
 
-    const formattedVehicle = {
-      number: newVehicle.vehicleNumber,
-      vehicleType: newVehicle.vehicleType || "",
-      model: newVehicle.model || "",
-      fastag: newVehicle.tagId || "",
-      fuel: newVehicle.fuelType || "",
-      expiry: newVehicle.expiry || "",
-      status: newVehicle.status || "Active",
-      driverName: newVehicle.driverName || "",
-    };
-
-    setVehicles((prevVehicles) => {
-      const exists = prevVehicles.some(
-        (vehicle) =>
-          vehicle.number === newVehicle.vehicleNumber
+      const res = await axios.get(
+        `http://localhost:5001/api/vehicles/user/${userId}`
       );
 
-      if (exists) {
-        return prevVehicles.map((vehicle) =>
-          vehicle.number === newVehicle.vehicleNumber
-            ? formattedVehicle
-            : vehicle
-        );
+      if (res.data.success) {
+        setVehicles(res.data.data);
       }
-
-      return [...prevVehicles, formattedVehicle];
-    });
-
-  }, [location.state]);
+    } catch (error) {
+      console.error("Error fetching vehicles:", error);
+    }
+  };
 
   return (
     <div className="dashboard-layout">
-
       <Sidebar
         isMobileOpen={isMobileOpen}
         setIsMobileOpen={setIsMobileOpen}
       />
 
       <div className="dashboard-main">
-
         <DashboardNavbar
           setIsMobileOpen={setIsMobileOpen}
         />
@@ -72,12 +56,9 @@ const Vehicles = () => {
         <div className="dashboard-content">
 
           <div className="vehicles-header">
-
             <div>
               <h1>Vehicles</h1>
-              <p>
-                Manage all your linked vehicles and FASTag accounts.
-              </p>
+              <p>Manage all your linked vehicles and FASTag accounts.</p>
             </div>
 
             <button
@@ -87,104 +68,100 @@ const Vehicles = () => {
               <Plus size={18} />
               Add Vehicle
             </button>
-
           </div>
 
-          {vehicles.length === 0 ? (
-            <p>No vehicles added yet.</p>
-          ) : (
-            <>
-              <div className="vehicles-grid">
-
-                {vehicles.map((vehicle, index) => (
-                  <div
-                    className="vehicle-card"
-                    key={index}
-                  >
-
-                    <div className="vehicle-top">
-
-                      <div className="vehicle-icon">
-                        <Car size={30} />
-                      </div>
-
-                      <span className="vehicle-status">
-                        {vehicle.status}
-                      </span>
-
-                    </div>
-
-                    <h2>{vehicle.number}</h2>
-
-                    <p className="vehicle-model">
-                      {vehicle.model}
-                    </p>
-
-                    <div className="vehicle-details">
-
-                      <div className="vehicle-detail">
-                        <ShieldCheck size={18} />
-                        <span>{vehicle.fastag}</span>
-                      </div>
-
-                      <div className="vehicle-detail">
-                        <Fuel size={18} />
-                        <span>{vehicle.fuel}</span>
-                      </div>
-
-                      <div className="vehicle-detail">
-                        <Calendar size={18} />
-                        <span>{vehicle.expiry}</span>
-                      </div>
-
-                    </div>
-
+          {/* VEHICLE CARDS */}
+          <div className="vehicles-grid">
+            {vehicles.map((vehicle) => (
+              <div
+                className="vehicle-card"
+                key={vehicle._id}
+              >
+                <div className="vehicle-top">
+                  <div className="vehicle-icon">
+                    <Car size={28} />
                   </div>
-                ))}
 
-              </div>
-
-              <div className="transactions-section">
-
-                <div className="transactions-header">
-                  <h2>Vehicle Details</h2>
+                  <span className="vehicle-status">
+                    {vehicle.status}
+                  </span>
                 </div>
 
-                <table className="transactions-table">
+                <h2>{vehicle.vehicleNumber}</h2>
 
-                  <thead>
-                    <tr>
-                      <th>Vehicle Number</th>
-                      <th>Vehicle Type</th>
-                      <th>Model</th>
-                      <th>FASTag Provider</th>
-                      <th>Driver Name</th>
-                      <th>Fuel Type</th>
-                      <th>Expiry</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
+                <p className="vehicle-model">
+                  {vehicle.vehicleType}
+                </p>
 
-                  <tbody>
-                    {vehicles.map((vehicle, index) => (
-                      <tr key={index}>
-                        <td>{vehicle.number}</td>
-                        <td>{vehicle.vehicleType}</td>
-                        <td>{vehicle.model}</td>
-                        <td>{vehicle.fastag}</td>
-                        <td>{vehicle.driverName}</td>
-                        <td>{vehicle.fuel}</td>
-                        <td>{vehicle.expiry}</td>
-                        <td>{vehicle.status}</td>
-                      </tr>
-                    ))}
-                  </tbody>
+                <div className="vehicle-details">
 
-                </table>
+                  <div className="vehicle-detail">
+                    <ShieldCheck size={16} />
+                    <span>{vehicle.tagId}</span>
+                  </div>
 
+                  <div className="vehicle-detail">
+                    <span>
+                      Category: {vehicle.category || "N/A"}
+                    </span>
+                  </div>
+
+                </div>
               </div>
-            </>
-          )}
+            ))}
+          </div>
+
+          {/* TABLE */}
+          <div className="transactions-section">
+
+            <div className="transactions-header">
+              <h2>All Vehicles</h2>
+            </div>
+
+            <table className="transactions-table">
+
+              <thead>
+                <tr>
+                  <th>Owner Name</th>
+                  <th>Vehicle Number</th>
+                  <th>Mobile Number</th>
+                  <th>FASTag Bank</th>
+                  <th>Vehicle Type</th>
+                  <th>Category</th>
+                  <th>Lease Status</th>
+                  <th>FASTag Balance</th>
+                  <th>Last Toll Deduction</th>
+                  <th>Monthly Toll Expense</th>
+                  <th>Fleet Manager</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {vehicles.map((vehicle) => (
+                  <tr key={vehicle._id}>
+                    <td>{vehicle.ownerName}</td>
+                    <td>{vehicle.vehicleNumber}</td>
+                    <td>{vehicle.mobileNumber}</td>
+                    <td>{vehicle.fastagBank}</td>
+                    <td>{vehicle.vehicleType}</td>
+                    <td>{vehicle.category}</td>
+                    <td>{vehicle.leaseStatus}</td>
+                    <td>₹{vehicle.fasTagBalance}</td>
+                    <td>{vehicle.lastTollDeduction}</td>
+                    <td>₹{vehicle.monthlyTollExpense}</td>
+                    <td>{vehicle.fleetManager}</td>
+                    <td> 
+                      {new Date(
+                        vehicle.createdAt
+                      ).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+
+            </table>
+
+          </div>
 
         </div>
       </div>

@@ -1,17 +1,38 @@
 
 .das {
-  
+  position: relative;
+  overflow: hidden; 
   padding: 70px 0px;
   background-color: #9fb9ed43;
-
- 
+  background: transparent;
   background-image: 
     linear-gradient(#e5e7eb 1px, transparent 1px),
-    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+    linear-gradient(90  deg, #e5e7eb 1px, transparent 1px);
   background-size: 30px 30px;
 }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
 .dashboard-inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,13 +50,13 @@
 .dashboard-left h1 {
   font-size: 50px;
   font-weight: 600;
-  color: #0f172a;
+  color: white;
   /* line-height: 1.2; */
 }
 
 .dashboard-left p {
   margin-top: 20px;
-  color: #555;
+  color: #f1f5f9;
   font-size: 25px;
   max-width: 500px;
   line-height: 35px;
@@ -59,7 +80,6 @@
   font-size: 18px;
 }
 
-
 .demo-btn {
   background: #f1f5f9;
   border: 1px solid #ddd;
@@ -75,13 +95,12 @@
    background: linear-gradient(90deg, #0fc628, #c1ff63);
 }
 
-
 .dashboard-right img {
   width: 600px;
   border-radius: 20px;
- 
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
 }
-.card-container {
+.home-card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -89,7 +108,7 @@
   margin-bottom: 20px;
 }
 
-.card{
+.home-card{
     background: #fff;
   width: 100%;
   border: 1px solid #e5e7eb;
@@ -106,7 +125,7 @@
 
 }
 
-.icon {
+.home-icon {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -118,13 +137,11 @@
   margin-bottom: 12px;
 }
 
-
 .rupee {
   background: #e8f0ff;
   color: #1852c6;
 
 }
-
 
 .green {
   background: #e6f9ee;
@@ -182,8 +199,6 @@
   color: #6b7280;
 }
 
-
-
 .feature-card {
   width: 100%;
   border: 1px solid #e5e7eb;
@@ -227,6 +242,9 @@
   margin-bottom: 10px;
   margin-top: 15px;
   color: black;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
 }
 
 .feature-card p {
@@ -525,10 +543,10 @@ line-height: 1.5;
   
 }
 
-
 .team-container
 {
   margin-top: 20px;
+  padding: 20px;
 }
 .team-heading
 {
@@ -552,20 +570,19 @@ line-height: 1.5;
 }
 .team-card-container
 {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  align-items: center;
  
  
 }
 .team-card
 {
   margin-bottom: 50px;
- padding: 30px 20px 30px;
- background-color: white;
- border-radius: 18px;
- border: 1px solid #e5e7eb;
+  padding: 30px 20px 30px;
+  background-color: white;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
   box-shadow: 0 8px 18px rgba(0,0,0,1);
   
  
@@ -596,6 +613,13 @@ line-height: 1.5;
   font-size: 20px;
   
 }
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
 .designation p
 {
   margin-top: 15px;
@@ -604,9 +628,19 @@ line-height: 1.5;
 }
 .team-img
 {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  background: linear-gradient(
+    135deg,
+    #55b2ff,
+    #5a54f9
+  );
 }
 .about-story
 {
@@ -615,6 +649,7 @@ line-height: 1.5;
   justify-content: center;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 .about-story-heading
 {
@@ -640,303 +675,186 @@ line-height: 1.5;
     color: #1e1f21;
 }
 
-
-
 @media (max-width: 750px) {
-
-
-.das{
-  margin-top: 0;
-  padding: 20px 0;
-}
-
-.dashboard-inner{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* REMOVE margin-left */
-.dashboard-buttons{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-left: 0;
-}
-
-.dashboard-right{
-  margin-top: 10px;
-}
-
-.dashboard-left h1{
-  font-size: 29px;
-}
-
-.dashboard-left p{
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.dashboard-right img{
-  width: 100%;
-  max-width: 360px;
-  border-radius: 20px;
-}  
-  .card-container {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    margin-bottom: 40px;
-  }
-
-  .card {
-    width: 70%;
-    margin: 5px;
-    text-align: center;
-  }
-
-   .icon
-   {
-    
-    display: inline-flex;
-    justify-content: center;
-   
-   
-   
-    
-   }
-  .feature
-  {
-    padding-bottom: 60px;
-  }
-  .feature-container {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 20px;
-  }
-
-  .feature-card {
-    width: 90%;
-    
-    text-align: center;
-  }
-  .icon-box
-  {
-      
-    display: inline-flex;
-    
-    
-  }
-.work-content
-{
-  text-align: center;
-}
   
-  .work-container {
-    grid-template-columns: 1fr;
-    
-  }
-  .work-section
-  {
-      padding-bottom: 30px;
-      width: 390px;
-  }
-
- .team-card-container
- {
-  gap: 10px;
- }
-
-  
-  .price-card-conatainer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pricing-card {
-    width: 90%;
-    text-align: center;
-  }
-
-
-.about-heading
-{
-  padding-top: 1px;
-}
-.about-center-text
-{
-  margin:0px 19px;
-  padding: 10px;
-  height: 500px;
-  flex-direction: column;
-    align-items: center;
-    width: 91%;
-}
-
-.about-card
-{
-  text-align: center;
-}
-
-  .about-card-container {
-    grid-template-columns: 1fr;
-    gap: 1px;
-  }
-
-  .about-heading h2 {
-    font-size: 32px;
-            
-    
-  }
-
-  
-  .about-center-heading h2 {
-    font-size: 28px;
-    
-  }
-  .about-story-heading
-  {
-    width: 90%;
-  }
-  
-  .team-heading
-  {
-    
-    margin-top: 60px;
-  }
-  .team-card-container {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-    
-  }
-
-  .team-card {
-    width: 90%;
-    margin-bottom: 30px;
-  }
-
- 
-  .work-content p {
-    font-size: 16px;
-  }
-}
-@media(min-width: 768px) and (max-width: 1024px){
-
-.das
-{
-  margin-top: 0px;
-  padding: 20px 0px;
-}
-.dashboard-right
-{
-  margin-top: 10px;
-}
-.dashboard-buttons
-{
-  display: inline-flex;
-  gap: 20px;
-}
-  .dashboard-inner {
+  .dashboard-inner{
     flex-direction: column;
     text-align: center;
+    gap: 24px;
   }
-  .dashboard-left{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .dashboard-left,
+  .dashboard-right{
+    margin: 0;
+    width: 100%;
+  }
+
+  .dashboard-left h1{
+    font-size: 36px;
+    line-height: 1.2;
   }
 
   .dashboard-left p{
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 16px auto;
+  }
+
+  .dashboard-buttons{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .get-btn,
+  .demo-btn{
+    width: 220px;
+  }
+
+  .dashboard-right img{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .home-card-container{
+    grid-template-columns: 1fr;
+  }
+
+  .feature-container{
+    grid-template-columns: 1fr;
+  }
+
+  .work-container{
+    grid-template-columns: 1fr;
+  }
+
+  .about-card-container{
+    grid-template-columns: 1fr;
+  }
+
+  .price-card-conatainer{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pricing-card{
+    width: 100%;
+  }
+
+  .team-card-container{
+    grid-template-columns: 1fr;
+  }
+
+  .team-card{
+    width: 100%;
+  }
+
+  .about-center-text{
+    flex-direction: column;
+    height: auto;
+    gap: 30px;
+    padding: 30px;
+  }
+}
+
+@media(min-width: 768px) and (max-width: 1024px){
+
+  container {
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  .das {
+    padding: 40px 0;
+  }
+
+  .dashboard-inner{
+    flex-direction: column;
     text-align: center;
+    gap: 30px;
+  }
+
+  .dashboard-left,
+  .dashboard-right{
+    margin: 0;
+    width: 100%;
+  }
+
+  .dashboard-left p{
     margin: 0 auto;
     max-width: 650px;
   }
 
-
-  .dashboard-right img {
-    width: 100%;
-  }
-
-  .card-container {
-    display: flex;
-  }
-
-  
-  .feature-container{
-  display: flex;
-  gap: 10px;
-  align-items: stretch;
-}
-.feature-card h2
-{
-  font-size: 19px;
-}
-.feature-card p
-{
-  font-size: 15px;
-}
-
-.feature-card{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  padding: 10px;
-  width: 100%;
-}
-  .icon-box
-  {
-    display: inline-flex
-  }
-
-  .work-container {
-    display: flex;
-  }
-  .work-card
-  {
-    width: 380px;
-  }
-  .work-content
-  {
-    text-align: center;
-    line-height: 1.5;
-  }
-  .price-card-conatainer
-  {
-    display: grid;
-  }
-.work-content h2
-{
-  font-size: 16px;
-}
-  
-.work-card p
-{
-  font-size: 11px;
-}
-  .team-card-container {
-    
+  .dashboard-buttons{
     justify-content: center;
   }
 
-  .about-center-text {
-    flex-direction: column;
-    height: auto;
-    padding: 30px;
-  }
-  .about-story-heading
-  {
-    width: 90%;
-  }
-  .about-center-heading
-  {
-    margin: 20px;
-  }
-  .about-center-text
-  {
+  .dashboard-right img{
     width: 100%;
-    max-width: 732px;
+    max-width: 700px;
+  }
+
+  .home-card-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-card:last-child{
+    grid-column: 1 / span 2;
+    justify-self: center;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .work-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-card:last-child {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .about-card-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-card:last-child {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .price-card-conatainer{
+    justify-content: center;
+  }
+
+  .team-card-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .team-card{
+    width: 100%;
+  }
+
+  .about-center-text{
+    flex-wrap: wrap;
+    height: auto;
+    padding: 40px;
   }
 }
 
