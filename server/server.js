@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 // Routes Imports
 import authRoutes from "./routes/authRoutes.js";
 import tollRoutes from "./routes/tollRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import vehicleRoutes from "./routes/vehicleRoutes.js"; 
 
 dotenv.config();
@@ -29,7 +30,8 @@ const startServer = async () => {
   // Routes connections
   app.use('/api/auth', authRoutes);
   app.use('/api/toll', tollRoutes);
-  app.use('/api/vehicles', vehicleRoutes); // Registering your new route
+  app.use("/api/users", userRoutes);
+  app.use('/api/vehicles', vehicleRoutes); 
 
   app.get("/", (req, res) => {
       res.send("API is running...");
