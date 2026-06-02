@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
-
 import "../styles/Vehicles.css";
 import axios from "axios";
 
 import {
   Car,
   Plus,
+  Fuel,
+  Calendar,
   ShieldCheck,
 } from "lucide-react";
-
-import axios from "axios";
 
 const Vehicles = () => {
   const navigate = useNavigate();
@@ -56,7 +55,9 @@ const Vehicles = () => {
           <div className="vehicles-header">
             <div>
               <h1>Vehicles</h1>
-              <p>Manage all your linked vehicles and FASTag accounts.</p>
+              <p>
+                Manage all your linked vehicles and FASTag accounts.
+              </p>
             </div>
 
             <button
@@ -115,8 +116,6 @@ const Vehicles = () => {
                   </div>
                 ))}
               </div>
-            ))}
-          </div>
 
               <div className="transactions-section">
                 <div className="transactions-header">
