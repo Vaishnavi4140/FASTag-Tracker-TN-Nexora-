@@ -366,54 +366,78 @@ function Home()
             <p>A passionate team of engineers, designers, and innovators from India's top tech companies.</p>
           </div>
 
-          <div className="team-card-container">
-            <div className="team-card">
-              <div className="team-img">
-                 <img src={tarunImg} alt="Tarun Nigam" />
-              </div> 
-              <h2>Tarun Nigam</h2>
-              <div className="designation">
-                <p >Founder of TN-Nexora technologies and FastTag Tracker</p>
-              </div>
-              <p>Experienced in client management, with a proven track record of working with multinational clients and driving business growth through technology solutions.</p>
+<div className="team-card-container">
 
-            </div>
-            <div className="team-card">
-             <div className="team-img">
-                 <img src={PSPImg} alt="Tarun Nigam" />
-              </div>
-              <h2>Prushpendra Singh Parihar</h2>
-             <div className="designation">
-                <p >BBackend Developer (Node.js)</p>
-              </div>
-              <p>Develops server-side functionality and APIs using Node.js. Ensures smooth and secure application performance.</p>
-            </div>
+  <div
+    className="team-card"
+    style={{ "--bg-img": `url(${tarunImg})` }}
+  >
+    <div className="team-img">
+      <img src={tarunImg} alt="Tarun Nigam" />
+    </div>
+    <h2>Tarun Nigam</h2>
+    <div className="designation">
+      <p>Founder of TN-Nexora Technologies and FastTag Tracker</p>
+    </div>
+    <p>
+      Experienced in client management, with a proven track record of
+      working with multinational clients and driving business growth
+      through technology solutions.
+    </p>
+  </div>
 
-            <div className="team-card">
-              <div className="team-img">
-                 <img src={vaishnaviImg} alt="Tarun Nigam" />
-              </div>
-              <h2>Vaishnavi</h2>
-              <div className="designation">
-                <p >Frontend developer(UI-UX)</p>
-              </div>
-              <p>Designs user-friendly and responsive interfaces. Focuses on creating an attractive and seamless user experience.</p>
+  <div
+    className="team-card"
+    style={{ "--bg-img": `url(${PSPImg})` }}
+  >
+    <div className="team-img">
+      <img src={PSPImg} alt="Puspendra Singh" />
+    </div>
+    <h2>Puspendra Singh</h2>
+    <div className="designation">
+      <p>Backend Developer (Node.js)</p>
+    </div>
+    <p>
+      Develops server-side functionality and APIs using Node.js.
+      Ensures smooth and secure application performance.
+    </p>
+  </div>
 
-            </div>
+  <div
+    className="team-card"
+    style={{ "--bg-img": `url(${vaishnaviImg})` }}
+  >
+    <div className="team-img">
+      <img src={vaishnaviImg} alt="Vaishnavi" />
+    </div>
+    <h2>Vaishnavi</h2>
+    <div className="designation">
+      <p>Frontend Developer (UI/UX)</p>
+    </div>
+    <p>
+      Designs user-friendly and responsive interfaces.
+      Focuses on creating an attractive and seamless user experience.
+    </p>
+  </div>
 
-            <div className="team-card">
-              <div className="team-img">
-                <img src={AmanImg} alt="Tarun Nigam" />
-              </div>
-              <h2>Aman Pal</h2>
-              <div className="designation">
-                <p >Database Administrator (MongoDB & SQL)</p>
-              </div>
-              <p>Manages and maintains MongoDB and SQL databases. Ensures secure, efficient, and reliable data storage.</p>
+  <div
+    className="team-card"
+    style={{ "--bg-img": `url(${AmanImg})` }}
+  >
+    <div className="team-img">
+      <img src={AmanImg} alt="Aman Pal" />
+    </div>
+    <h2>Aman Pal</h2>
+    <div className="designation">
+      <p>Database Administrator (MongoDB & SQL)</p>
+    </div>
+    <p>
+      Manages and maintains MongoDB and SQL databases.
+      Ensures secure, efficient, and reliable data storage.
+    </p>
+  </div>
 
-            </div>
-
-          </div>
+</div>
 
 
 
