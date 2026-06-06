@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/AddVehicle.css";
 import logo from "../assets/Track.png";
-import vehicleImage from "../assets/vehicle-illustration.png";
 
 const AddVehicle = () => {
   const navigate = useNavigate();

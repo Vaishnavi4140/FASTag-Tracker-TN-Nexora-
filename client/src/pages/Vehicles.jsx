@@ -75,10 +75,11 @@ const Vehicles = () => {
             <>
               <div className="vehicles-grid">
                 {vehicles.map((vehicle) => (
-                  <div
-                    className="vehicle-card"
-                    key={vehicle._id}
-                  >
+                  <div className="vehicle-card" key={vehicle._id}
+                    onClick={() =>
+                      navigate(`/vehicle/${vehicle._id}`, {state: {vehicle}
+                      })
+                    }>
                     <div className="vehicle-top">
                       <div className="vehicle-icon">
                         <Car size={30} />

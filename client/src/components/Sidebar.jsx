@@ -3,10 +3,12 @@ import "../styles/Sidebar.css";
 import {  NavLink } from "react-router-dom";
 import logo from "../assets/Track.png";
 import {
+    House,
     LayoutDashboard,
     History,
     Car,
     BarChart3,
+    Calculator,
     User,
 } from "lucide-react";
 
@@ -16,6 +18,11 @@ const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
     // const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     const menuItems = [
+    {
+        name: "Home",
+        path: "/",
+        icon: <House size={20} />,
+    },
     {
         name: "Dashboard",
         path: "/dashboard",
@@ -35,6 +42,11 @@ const Sidebar = ( { isMobileOpen, setIsMobileOpen } ) => {
         name: "Analytics",
         path: "/analytics",
         icon: <BarChart3 size={20} />,
+    },
+    {
+        name: "Toll Calculation",
+        path: "/toll-calculation",
+        icon: <Calculator size={20} />,
     },
     {
         name: "Profile",

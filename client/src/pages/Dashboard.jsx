@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import Card from "../components/Card";
+import Card from "../components/card";
 import "../styles/Dashboard.css";
 import {
     IndianRupee,
