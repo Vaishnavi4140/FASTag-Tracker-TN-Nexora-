@@ -1,12 +1,10 @@
 
 .das {
   position: relative;
-overflow: hidden;
-  
+  overflow: hidden;
   padding: 70px 0px;
   background-color: #9fb9ed43;
-
- background: transparent;
+  background: transparent;
   background-image: 
     linear-gradient(#e5e7eb 1px, transparent 1px),
     linear-gradient(90  deg, #e5e7eb 1px, transparent 1px);
@@ -91,8 +89,6 @@ overflow: hidden;
    background: linear-gradient(90deg, #0fc628, #c1ff63);
 }
 
-
-
 .card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -109,19 +105,17 @@ overflow: hidden;
 }
 
 .home-card{
-    background: #fff;
-  width: 100%;
+  background: #fff;
+  /* width: 100%; */
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-
   padding: 20px 20px 30px;
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
 
 }
 
@@ -207,7 +201,7 @@ overflow: hidden;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   
 }
 .feature-card:hover
@@ -242,15 +236,15 @@ overflow: hidden;
   margin-bottom: 10px;
   margin-top: 15px;
   color: black;
-  display: flex ;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: left;
 }
 
 .feature-card p {
   font-size: 17px;
 line-height: 1.5;
   color: #6b7280;
+  text-align: left;
 }
 .work-section
 {
@@ -330,6 +324,7 @@ line-height: 1.5;
 
 .work-content {
   padding: 25px;
+  text-align: left;
 }
  .work-icon{
   display: flex;
@@ -379,6 +374,7 @@ line-height: 1.5;
   border-radius: 22px;
   padding: 35px;
   position: relative;
+  text-align: left;
 }
 .pro-card {
   border: 2px solid #2563eb;
@@ -489,8 +485,8 @@ line-height: 1.5;
   box-shadow: 0 8px 18px rgba(0,0,0,1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .about-card-containt h2
@@ -505,14 +501,15 @@ line-height: 1.5;
   font-weight: 500;
   line-height: 1.5;
   font-size: 15px;
+  text-align: left;
 }
 
 .about-center-text
 {
-   margin-top: 30px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-around;
-   background: linear-gradient(90deg, #51a6ef, #6c63ff);
+  background: linear-gradient(90deg, #51a6ef, #6c63ff);
   align-items: center;
   border-radius: 20px;
   height: 250px;
@@ -522,7 +519,6 @@ line-height: 1.5;
 .about-center-heading
 {
   text-align: center;
- 
 }
 .about-center-heading h2
 {
@@ -540,7 +536,6 @@ line-height: 1.5;
   font-size: 18px;
   margin-bottom: 10px;
   font-weight: 500;
-  
 }
 
 .team-container
@@ -551,119 +546,105 @@ line-height: 1.5;
 .team-heading
 {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 .team-heading h2
 
 {
-  font-size: 35px;
+  font-size: 30px;
   color: #020617;
-  font-weight: 500;
+  font-weight: 600;
 }
 .team-heading p
 {
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 12px;
+  font-size: 16px;
   color: #020617;
   font-weight: 500;
 }
 .team-card-container
 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
- 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
  
 }
 .team-card
 {
-  margin-bottom: 50px;
-  padding: 30px 20px 30px;
+  margin-bottom: 20px;
+  padding: 0; /* remove white gap around image */
   background-color: white;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 8px 18px rgba(0,0,0,1);
-  
- 
+  border-radius: 12px;
+  border: 1px solid #e8e8ea;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  overflow: hidden;
 }
 .team-card h2
 {
-  text-align: center;
   color: #020617;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
 }
 .team-card p{
-  text-align: center;
   color: #666;
   font-size: 15px;
+  margin-bottom: 6px;
 
 }
-.team-img h2
-{
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-   background: linear-gradient(90deg, #4facfe, #6c63ff);
-  padding: 30px 1px;
-  font-weight: 500;
-  color: white;
-  font-size: 20px;
-  
+.team-img {
+  width: 100%;
+  height: 240px; /* fixed uniform height */
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .team-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 50%;
+  object-fit: cover; /* consistent crop */
+  /* object-position: center; */
+  object-position: center 40%;
+  display: block;
 }
 .designation p
 {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   color: #2563eb;
 }
-.team-img
-{
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    #55b2ff,
-    #5a54f9
-  );
+
+/* move padding to non-image children so image is full-bleed */
+.team-card > :not(.team-img) {
+  padding: 14px 16px;
 }
 .about-story
 {
   background-color: #f9fafb;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 .about-story-heading
 {
-  text-align: center;
-    max-width: 1400px;
+  text-align: left;
+    max-width: 1200px;
     width: 100%;
-     padding: 30px 0px;
+     padding: 16px 0px;
  
 }
 .about-story-heading h2{
   font-size: 30px;
   font-weight: 600;
-   margin-top: 20px;
-   margin-bottom: 20px;
+   margin-top: 8px;
+   margin-bottom: 12px;
    color: #1f2937;
 }
 .about-story-heading p
@@ -679,8 +660,7 @@ line-height: 1.5;
 .dashboard-left,
 .dashboard-right {
   margin: 0;
- 
-}
+ }
 
   .dashboard-left h1{
     font-size: 36px;
@@ -765,7 +745,7 @@ line-height: 1.5;
   }
 
   .dashboard-left,
-.dashboard-right {
+  .dashboard-right {
   margin: 0;
 }
 .das

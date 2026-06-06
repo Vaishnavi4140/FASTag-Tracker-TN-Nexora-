@@ -1,37 +1,50 @@
 import React from "react";
 
 const Card = ({
-    icon,
-    title,
-    value,
-    growth,
-    subtitle,
-    iconBg,
-    iconColor,
+  icon,
+  title,
+  value,
+  growth,
+  subtitle,
+  iconBg,
+  iconColor,
 }) => {
-return (
+  return (
     <div className="dashboard-card">
-        <div className="card-top">
-            <div
-                className="card-icon"
-                style={{
-                    backgroundColor: iconBg,
-                    color: iconColor,
-                }}
-            >
-            {icon}
+
+      <div className="card-row">
+
+        <div
+          className="card-icon"
+          style={{
+            backgroundColor: iconBg,
+            color: iconColor,
+          }}
+        >
+          {icon}
         </div>
 
-        {growth && (<span className="growth-text">{growth}</span>)}
+        <div className="card-content">
+          <h2>{value}</h2>
+          <p>{title}</p>
+
+          {subtitle && (
+            <span className="card-subtitle">
+              {subtitle}
+            </span>
+          )}
         </div>
 
-        <div className="card-body">
-            <p>{title}</p>
-            <h2>{value}</h2>
-            {subtitle && <span>{subtitle}</span>}
-        </div>
+      </div>
+
+      {growth && (
+        <span className="growth-text">
+          {growth}
+        </span>
+      )}
+
     </div>
-);
+  );
 };
 
 export default Card;

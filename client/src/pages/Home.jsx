@@ -57,40 +57,54 @@ function Home()
         </div>
       </div>
       </div>
-        <div className="home-card-container container ">
-
-        <div className="home-card ">
-          <div className="home-icon rupee">
-             <FaRupeeSign size={25} color="#3b82f6" />
+      <div className="home-card-container">
+        <div className="home-card">
+          <div className="home-card-top ">
+            <div className="home-icon rupee">
+              <FaRupeeSign size={25} color="#3b82f6" />
             </div>
-            
-          <p className="title">Total Toll Paid</p>
-          <h2 className="value">₹12,450</h2>
-          
+
+            <div className="home-card-content">
+              <h2 className="value">₹12,450</h2>
+              <p className="title">Total Toll Paid</p>
+            </div> 
+          </div>
+        </div>
+        
+        <div className="home-card">
+          <div className="home-card-top ">
+            <div className="home-icon green">
+              <FaSlidersH size={25} color="#22c55e" />
+            </div>
+            <div className="home-card-content">
+              <h2 className="value">82</h2>
+              <p className="title">Trips Recorded</p>
+            </div>
+          </div>
         </div>
 
         <div className="home-card">
-          <div className="home-icon green">
-            <FaSlidersH size={25} color="#22c55e" />
+          <div className="home-card-top">
+            <div className="home-icon yellow">
+              <FaDollarSign size={25} color="#f59e0b" />
+            </div>
+            <div className="home-card-content">
+              <h2 className="value">₹120</h2>
+              <p className="title">Last Toll</p>
+            </div>
           </div>
-          <p className="title">Trips Recorded</p>
-          <h2 className="value">82</h2>
         </div>
 
         <div className="home-card">
-          <div className="home-icon yellow">
-            <FaDollarSign size={25} color="#f59e0b" />
+          <div className="home-card-top">
+            <div className="home-icon purple">
+              <FaCar size={25} color="#a855f7" />
+            </div>
+            <div className="home-card-content">
+              <h2 className="value">2</h2>
+              <p className="title">Vehicles Linked</p>
+            </div>
           </div>
-          <p className="title">Last Toll</p>
-          <h2 className="value">₹120</h2>
-        </div>
-
-        <div className="home-card">
-          <div className="home-icon purple">
-            <FaCar size={25} color="#a855f7" />
-          </div>
-          <p className="title">Vehicles Linked</p>
-          <h2 className="value">2</h2>
         </div>
 
       </div>

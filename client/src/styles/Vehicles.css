@@ -43,6 +43,7 @@
     border: 1px solid #e5e7eb;
     max-width: 300px;
     width: 100%;
+    cursor: pointer;
     /* max-height: 350px; */
 }
 

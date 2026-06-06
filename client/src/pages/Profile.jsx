@@ -20,8 +20,20 @@ const Profile = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const fullName = user?.name || "User";
+
+  const initials = fullName
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userId");
 
     navigate("/");
   };
@@ -48,8 +60,8 @@ const Profile = () => {
 
             {/* LEFT CARD */}
             <div className="profile-card">
-              <div className="avatar">JD</div>
-              <h2>John Doe</h2>
+              <div className="avatar">{initials}</div>
+                <h2>{fullName}</h2>
               <p>Member since January 15, 2026</p>
 
               <button className="primary-btn">Edit Profile</button>
@@ -126,30 +138,37 @@ const Profile = () => {
                 <h3>Preferences</h3>
 
                 <div className="toggle-item">
-                  <Bell size={18} />
-                  <div>
-                    <strong>Push Notifications</strong>
-                    <span>Get notified about toll transactions</span>
+                  <div className="toggle-item-left">
+                    <Bell size={20} />
+                    <div className="toggle-item-content">
+                      <strong>Push Notifications</strong>
+                      <span>Get notified about toll transactions</span>
+                    </div>
                   </div>
+
                   <input type="checkbox" defaultChecked />
                 </div>
 
                 <div className="toggle-item">
-                  <Mail size={18} />
-                  <div>
-                    <strong>Email Notifications</strong>
-                    <span>Receive monthly reports</span>
+                  <div className="toggle-item-left">
+                    <Mail size={18} />
+                    <div className="toggle-item-content">
+                      <strong>Email Notifications</strong>
+                      <span>Receive monthly reports</span>
+                    </div>
                   </div>
-                  <input type="checkbox" defaultChecked />
+                    <input type="checkbox" defaultChecked />
                 </div>
 
                 <div className="toggle-item">
-                  <RefreshCcw size={18} />
-                  <div>
-                    <strong>Auto Sync</strong>
-                    <span>Automatically sync SMS daily</span>
+                  <div className="toggle-item-left">
+                    <RefreshCcw size={18} />
+                    <div className="toggle-item-content">
+                      <strong>Auto Sync</strong>
+                      <span>Automatically sync SMS daily</span>
+                    </div>
                   </div>
-                  <input type="checkbox" defaultChecked />
+                    <input type="checkbox" defaultChecked />
                 </div>
               </div>
 

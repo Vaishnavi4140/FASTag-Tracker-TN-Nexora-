@@ -1,0 +1,173 @@
+.toll-header {
+  margin-bottom: 30px;
+}
+
+.toll-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.toll-header p {
+  color: #6b7280;
+  margin-top: 8px;
+  max-width: 650px;
+}
+
+.calculator-card {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.coming-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #fff7ed;
+  color: #ea580c;
+
+  border: 1px solid #fdba74;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 25px;
+}
+
+.calculator-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  opacity: 0.4;
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-group input,
+.input-group select {
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 0 14px;
+  background: #f9fafb;
+}
+
+.calculate-btn {
+  height: 50px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #2563eb;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-weight: 600;
+}
+
+.overlay-message {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  max-width: 450px;
+}
+
+.overlay-message h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.overlay-message p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.overlay-message span {
+  display: inline-block;
+  margin-top: 15px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.calculate-feature-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 24px;
+
+  transition: 0.3s ease;
+}
+
+.calculate-feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.calculate-feature-card h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.calculate-feature-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overlay-message {
+    width: 90%;
+  }
+}

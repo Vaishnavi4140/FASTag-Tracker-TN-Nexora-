@@ -15,6 +15,8 @@ import Analytics from "./pages/Analytics";
 import Profile from "./pages/Profile";
 import AddVehicle from "./pages/AddVehicle";
 import VehicleDetails from "./pages/VehicleDetails";
+import VehicleDashboard from "./pages/VehicleDashboard";
+import TollCalculation from "./pages/TollCalculation";
 
 function App() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -33,6 +35,8 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/add-vehicle" element={<AddVehicle />} />
             <Route path="/vehicle-details" element={<VehicleDetails />} />
+            <Route path="/toll-calculation" element={<TollCalculation />} />
+            <Route path="/vehicle/:id" element={<VehicleDashboard />} />
 
           </Routes>
     </BrowserRouter>
