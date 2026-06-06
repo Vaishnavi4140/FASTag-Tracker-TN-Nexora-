@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import "../styles/Home.css";
 import Road from "../assets/Road.jpg";
 import phone from "../assets/phone.jpg";
@@ -11,7 +11,7 @@ import vaishnaviImg from "../assets/vaishnavi.jpeg";
 import AmanImg from "../assets/aman.png";
 import bgVideo from "../assets/fastag-video.mp4";
 
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import { FaRupeeSign, FaSlidersH, FaDollarSign, FaCar , FaChartLine,FaEnvelope, FaTachometerAlt ,FaBullseye, FaEye, FaHeart, FaUser, FaShieldAlt } from "react-icons/fa";
 import { MdFlashOn, MdPhoneAndroid,MdAnalytics , MdAutoFixHigh } from "react-icons/md";
 
