@@ -14,6 +14,7 @@ import bgVideo from "../assets/fastag-video.mp4";
 import Footer from "../components/footer";
 import { FaRupeeSign, FaSlidersH, FaDollarSign, FaCar , FaChartLine,FaEnvelope, FaTachometerAlt ,FaBullseye, FaEye, FaHeart, FaUser, FaShieldAlt } from "react-icons/fa";
 import { MdFlashOn, MdPhoneAndroid,MdAnalytics , MdAutoFixHigh } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function Home()
 {
@@ -32,24 +33,26 @@ function Home()
 
         <div className="container dashboard-inner">
         <div className="dashboard-left">
-          <h1>
-            Track Every Toll 
-            <br />
-            Payment in One 
-            <br />
-            Dashboard
-          </h1>
+  <h1>
+    Track FASTag Transactions,
+    <br />
+    Toll Expenses & Vehicle Trips
+    <br />
+    from One Dashboard
+  </h1>
 
-          <p>
-            No more switching between FASTag apps. View all toll
-            deductions instantly.
-          </p>
+  <p>
+    FastagTracker helps vehicle owners,and businesses
+    organize FASTag toll payments, monitor travel expenses, review
+    vehicle activity, and understand trip spending without searching
+    through scattered SMS alerts or manual records.
+  </p>
 
-          <div className="dashboard-buttons">
-            <button className="get-btn">Get Started →</button>
-            <button className="demo-btn">▶ View Demo</button>
-          </div>
-        </div>
+  <div className="dashboard-buttons">
+    <button className="get-btn">Get Started →</button>
+    <button className="demo-btn">▶ View Demo</button>
+  </div>
+</div>
 
        
         <div className="dashboard-right">
@@ -66,7 +69,7 @@ function Home()
 
             <div className="home-card-content">
               <h2 className="value">₹12,450</h2>
-              <p className="title">Total Toll Paid</p>
+              <p className="title">Total Toll Expenses Tracked</p>
             </div> 
           </div>
         </div>
@@ -78,7 +81,7 @@ function Home()
             </div>
             <div className="home-card-content">
               <h2 className="value">82</h2>
-              <p className="title">Trips Recorded</p>
+              <p className="title">Vehicle Trips Recorded</p>
             </div>
           </div>
         </div>
@@ -109,55 +112,97 @@ function Home()
 
       </div>
       <div className="fea">
-      <div className="feature container" >
-        
-            <div className="feature-heading">
-              <h3>Powerful Features</h3>
-              <p>Everything you need to manage your toll payments efficiently</p>
-            </div>
-            <div className="feature-container">
-                
-               <div className="feature-card">
-                <div className="icon-box">
-                     < FaEnvelope color="#f59e0b"/>
-                </div>
-                   <h2>SMS Toll Detection</h2>
-                   <p> Auto detect toll deductions from bank SMS alerts.</p>
-                   <p className="explore-text">
-                     Explore feature →
-                     </p>
+      <div className="feature container">
 
-               </div>
-               <div className="feature-card">
-                <div className="icon-box">
-                    <FaTachometerAlt color="red"/>
-                </div>
-                   <h2>Centralized Dashboard</h2>
-                   <p>View toll history from all FASTag providers in one place.</p>
-                   <p className="explore-text">
-                     Explore feature →
-                     </p>
-               </div>
-               <div className="feature-card">
-                <div className="icon-box">
-                    <FaChartLine color="blue"/>
-                </div>
-                   <h2>Trip Analytics</h2>
-                   <p> See travel statistics and spending patterns.</p>
-                   <p className="explore-text">
-                     Explore feature →
-                     </p>
-                   
-               </div>
-               </div>
+  <div className="feature-heading">
+    <h3>Powerful Features</h3>
 
+    <p>
+      Everything you need to track FASTag transactions, manage toll expenses,
+      monitor vehicles, and analyze travel spending from one platform.
+    </p>
+  </div>
+
+  <div className="feature-container">
+
+    <div className="feature-card">
+      <div className="icon-box">
+        <FaEnvelope color="#f59e0b" />
       </div>
+
+      <h2>FASTag SMS Tracking</h2>
+
+      <p>
+        Every toll payment tells a story. Our{" "}
+        <Link to="/features" className="text-blue-600">
+          FASTag SMS Tracking System
+        </Link>{" "}
+        captures transaction alerts and converts them into organized toll
+        records, helping you stay informed about every deduction without
+        manual tracking.
+      </p>
+
+      <Link to="/features" className="explore-text">
+        Discover SMS Tracking →
+      </Link>
+    </div>
+
+    <div className="feature-card">
+      <div className="icon-box">
+        <FaTachometerAlt color="red" />
       </div>
+
+      <h2>Centralized FASTag Dashboard</h2>
+
+      <p>
+        Manage your complete travel activity from one place. The{" "}
+        <Link to="/dashboard" className="text-blue-600">
+          FASTag Dashboard
+        </Link>{" "}
+        brings together toll payments, vehicle records, travel history,
+        and expense summaries for quick monitoring.
+      </p>
+
+      <Link to="/dashboard" className="explore-text">
+        Explore Dashboard →
+      </Link>
+    </div>
+
+    <div className="feature-card">
+      <div className="icon-box">
+        <FaChartLine color="blue" />
+      </div>
+
+      <h2>Travel Expense Analytics</h2>
+
+      <p>
+        Turn travel data into meaningful insights with{" "}
+        <Link to="/analytics" className="text-blue-600">
+          FASTag Expense Analytics
+        </Link>
+        . Analyze spending trends, compare routes, and understand how toll
+        costs impact your overall travel budget.
+      </p>
+
+      <Link to="/analytics" className="explore-text">
+        View Travel Insights →
+      </Link>
+    </div>
+
+  </div>
+</div>
+</div>
       <div className="work-section container">
 
   <div className="work-heading">
-    <h1>How It Works</h1>
-    <p>Get started in three simple steps</p>
+    <h1>How FastagTracker Works</h1>
+
+<p>
+FastagTracker turns FASTag SMS alerts, toll deductions, vehicle records,
+    and travel data into organized insights. In three simple steps, users can
+    track toll expenses, review travel history, and manage vehicles from one
+    connected dashboard.
+</p>
   </div>
 
   <div className="work-container">
@@ -166,10 +211,7 @@ function Home()
     <div className="work-card">
 
       <div className="image-box">
-        <img
-          src={phone}
-          alt=""
-        />
+        <img src={phone} alt="FASTag SMS tracking on mobile phone" />
 
         <span className="step-number">1</span>
       </div>
@@ -177,48 +219,42 @@ function Home()
       <div className="work-content">
         <div className=" work-icon">
        <MdPhoneAndroid className="work-icon1" size={50} color=""/> 
-       <h2>Install & Connect</h2>
+       <h2>Connect Your FASTag Vehicle</h2>
         </div>
         <p>
-          Install app and give SMS permission
-        </p>
+  Add your vehicle details and registered mobile number to connect your FASTag
+  activity. FastagTracker helps organize toll records without depending on
+  manual spreadsheets.
+</p>
       </div>
-
     </div>
 
     
     <div className="work-card">
 
       <div className="image-box">
-        <img
-          src={view}
-          alt=""
-        />
+       <img src={view} alt="FASTag toll expense dashboard and travel analytics" />
 
         <span className="step-number">2</span>
       </div>
-
       <div className="work-content">
        <div className=" work-icon">
        <MdAnalytics className="work-icon1" size={50} color="blue"/> 
-       <h2>View Analytics</h2>
+       <h2>Track Toll Transactions</h2>
         </div>
 
         <p>
-          System detects toll deduction messages
-        </p>
-      </div>
+  View toll deductions, FASTag payment history, vehicle activity, and expense
+  summaries from your <Link to="/dashboard">centralized dashboard</Link>.
+</p>
 
     </div>
-
+</div> 
    
     <div className="work-card">
 
       <div className="image-box">
-        <img
-          src={car}
-          alt=""
-        />
+       <img src={car} alt="Vehicle toll tracking and FASTag trip management" />
 
         <span className="step-number">3</span>
       </div>
@@ -226,12 +262,14 @@ function Home()
       <div className="work-content">
         <div className=" work-icon">
        <MdAutoFixHigh className="work-icon1" size={50} color="red"/> 
-       <h2 >View Analytics</h2>
+       <h2>Analyze Travel Expenses</h2>
         </div>
       
         <p>
-          Dashboard shows full toll history
-        </p>
+  Review detailed <Link to="/toll-history">Toll History</Link>, analyze spending
+  through <Link to="/analytics">Travel Analytics</Link>, and manage vehicles
+  using <Link to="/vehicles">Vehicle Management</Link>.
+</p>
       </div>
 
     </div>
@@ -261,7 +299,9 @@ function Home()
                        <p>✓ Mobile app access</p>
                        <p>✓ Email support</p>
                        </div>
-                       <button>Get Started</button>
+                       <Link to="/signup" className="pricing-btn">
+  Get Started
+</Link>
                   </div>
                      
 
@@ -286,9 +326,9 @@ function Home()
                                 <p>✓ API access</p>
                          </div>
 
-                            <button className="pro-btn">
-                               Start Free Trial
-                            </button>
+                            <Link to="/signup" className="pro-btn">
+  Start Free Trial
+</Link>
                     </div>
 
 
@@ -314,7 +354,9 @@ function Home()
         <p>✓ Advanced security features</p>
       </div>
 
-      <button>Contact Sales</button>
+      <Link to="/contact" className="pricing-btn">
+  Contact Sales
+</Link>
 
     </div>
               </div>
@@ -340,7 +382,7 @@ function Home()
               < FaEye color=""/>
             </div>
             <div className="about-card-containt">
-                <h2>Our Mission</h2>
+                <h2>Our Vision</h2>
                 <p>To simplify toll tracking and expense management for millions of travelers across India, making financial transparency accessible to everyone.</p>
             </div>
           </div>
@@ -349,7 +391,7 @@ function Home()
               <FaHeart color="red"/>
             </div>
             <div className="about-card-containt">
-                <h2>Our Mission</h2>
+                <h2>Our Values</h2>
                 <p>To simplify toll tracking and expense management for millions of travelers across India, making financial transparency accessible to everyone.</p>
             </div>
           </div>
@@ -455,42 +497,41 @@ function Home()
 
 
 
-          <div className="about-story">
+                    <div className="about-story">
             <div className="about-story-heading">
-               <h2>Our Story</h2>
-                <p>
-          FastagTracker was born from a simple frustration: tracking toll expenses
-          in India was unnecessarily complicated. Our founders, frequent highway
-          travelers themselves, realized that while FASTag had digitized
-          payments, no one had built a comprehensive solution to track, analyze,
-          and optimize toll spending.
-                </p>
-                <p>
-          What started as a weekend project quickly grew into a mission to help
-          millions of Indians gain better control over their transportation
-          expenses. Today, FastagTracker processes over ₹100 crores in toll
-          transactions annually and helps families, businesses, and fleet
-          operators save money and time.
-                </p>
-                <p>
-          We're backed by leading venture capital firms and supported by a
-          community of passionate users who believe in our vision of transparent,
-          intelligent transportation finance.
-        </p>
-            </div>
+              <h2>Our Story</h2>
 
+              <p>
+                FastagTracker started with a simple problem: FASTag payments became
+                digital, but tracking toll deductions, vehicle trips, and travel expenses
+                still remained confusing for many users.
+              </p>
+
+              <p>
+                Drivers, families, and fleet operators often depend on scattered SMS
+                alerts, bank messages, and manual notes to understand where their toll
+                money is going. FastagTracker was built to bring all of that information
+                into one organized platform.
+              </p>
+
+              <p>
+                Today, FastagTracker helps users manage
+                <Link to="/toll-history"> toll history</Link>, monitor
+                <Link to="/vehicles"> vehicle activity</Link>, and analyze
+                <Link to="/analytics"> travel expenses</Link> with better clarity.
+              </p>
+            </div>
           </div>
 
-        </div>
+        </div> {/* team-container */}
         
-     </div>
+      </div> {/* about-section */}
 
+    </div> {/* dashboard-wrapper */}
 
-
-    </div>
-   <Footer/>
-   </>
-  );
+    <Footer />
+  </>
+);
 }
 
 export default Home;

@@ -735,7 +735,7 @@ line-height: 1.5;
 
 @media(min-width: 768px) and (max-width: 1024px){
 
-  container {
+  .container {
     width: 92%;
     margin: 0 auto;
   }
@@ -847,5 +847,191 @@ line-height: 1.5;
     height: auto;
     padding: 40px;
   }
+}
+/* Final Homepage Polish */
+
+.home-card,
+.feature-card,
+.work-card,
+.pricing-card,
+.about-card,
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-card:hover,
+.feature-card:hover,
+.work-card:hover,
+.pricing-card:hover,
+.about-card:hover,
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+.feature-card {
+  gap: 12px;
+}
+
+.explore-text,
+.text-blue-600,
+.work-content a,
+.pricing-btn {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.explore-text:hover,
+.text-blue-600:hover,
+.work-content a:hover,
+.pricing-btn:hover {
+  text-decoration: underline;
+}
+
+.pricing-btn,
+.pro-btn {
+  display: flex;
+  width: 100%;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pricing-btn {
+  background: #020617;
+  color: white;
+}
+
+.pro-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.pricing-btn:hover,
+.pro-btn:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+@media (max-width: 750px) {
+  .dashboard-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard-left h1 {
+    font-size: 32px;
+  }
+
+  .feature-heading h3,
+  .work-heading h1,
+  .price-heading h2,
+  .about-heading h2 {
+    font-size: 30px;
+  }
+
+  .feature-card,
+  .work-card,
+  .pricing-card,
+  .about-card {
+    padding: 24px;
+  }
+
+  .about-story-heading p {
+    font-size: 16px;
+  }
+}
+/* Homepage spacing and card alignment fixes */
+
+.feature {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.feature-container,
+.work-container,
+.about-card-container {
+  gap: 28px;
+}
+
+
+.work-section {
+  margin-top: 70px;
+  padding-bottom: 70px;
+}
+
+
+.image-box img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.work-content {
+  padding: 28px;
+}
+
+.work-icon {
+  align-items: center;
+  gap: 12px;
+}
+
+.work-icon h2 {
+  margin: 0;
+}
+
+.about-section {
+  padding: 70px 0;
+}
+
+.about-heading h2 {
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.about-card {
+  min-height: 300px;
+  padding: 32px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.about-card .icon-box {
+  margin-bottom: 20px;
+}
+
+.about-card-containt h2 {
+  margin: 20px 0 14px;
+}
+
+.about-center-text {
+  margin-top: 50px;
+}
+/* Feature card spacing final fix */
+
+.feature-card {
+  min-height: auto;
+  justify-content: flex-start;
+  padding: 32px;
+}
+
+.feature-card .icon-box {
+  margin-bottom: 28px;
+}
+
+.feature-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.feature-card p {
+  margin-bottom: 22px;
+}
+
+.feature-card .explore-text {
+  margin-top: 0;
 }
 
