@@ -27,12 +27,11 @@ const Navbar = () => {
         </div>
 
         <ul className="navbar-menu">
-          <li>Home</li>
-          <li>Features</li>
-          <li>Analytics</li>
-          <li>Pricing</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link to="/">Home</Link></li>
+<li><Link to="/features">Features</Link></li>
+<li><Link to="/analytics">Analytics</Link></li>
+<li><Link to="/about">About</Link></li>
+<li><Link to="/contact">Contact</Link></li>
         </ul>
 
         <div className="navbar-right">

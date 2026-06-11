@@ -3,6 +3,7 @@ import "../styles/Analytics.css";
 
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
+import { Link } from "react-router-dom";
 
 import {
   IndianRupee,
@@ -103,11 +104,29 @@ const Analytics = () => {
         <div className="analytics-content">
 
           <div className="analytics-header">
-            <h1>Analytics</h1>
-            <p>
-              Insights into your toll spending and travel patterns
-            </p>
-          </div>
+  <h1>Travel Analytics & Toll Expense Insights</h1>
+
+  <p>
+    FastagTracker Analytics helps users understand toll spending,
+    travel behavior, vehicle activity, and FASTag usage through
+    visual reports and interactive charts.
+  </p>
+
+  <p>
+    Monitor monthly toll expenses, analyze travel trends, compare
+    vehicle performance, and identify opportunities to reduce
+    transportation costs.
+  </p>
+</div>
+<div className="analytics-links">
+  <p>
+    Review your
+    <Link to="/toll-history"> Toll History </Link>
+    or manage vehicles through
+    <Link to="/vehicles"> Vehicle Management </Link>
+    for deeper insights.
+  </p>
+</div>
 
           {/* TOP CARDS */}
 
@@ -352,6 +371,25 @@ const Analytics = () => {
               </div>
             </div>
           </div>
+          <section className="analytics-info">
+  <h2>Why Travel Analytics Matters</h2>
+
+  <p>
+    Understanding travel expenses is essential for vehicle owners,
+    families, fleet managers, and transport businesses.
+    FastagTracker Analytics provides visibility into toll payments,
+    route usage, and travel spending patterns.
+  </p>
+
+  <p>
+  By analyzing FASTag transactions and vehicle activity,
+  users can make informed decisions, optimize travel costs,
+  and improve overall transportation efficiency. Users can also
+  review detailed <Link to="/toll-history">toll history records</Link>
+  and monitor vehicle performance through
+  <Link to="/dashboard"> dashboard reports</Link>.
+</p>
+</section>
 
           {/* INSIGHTS */}
 
@@ -382,6 +420,7 @@ const Analytics = () => {
 
         </div>
       </div>
+      
     </div>
   );
 };

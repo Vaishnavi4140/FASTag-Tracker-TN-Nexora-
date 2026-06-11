@@ -1,0 +1,67 @@
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  line-height: 1.8;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-section,
+.about-faq,
+.about-cta {
+  margin-bottom: 50px;
+}
+
+.about-section h2,
+.about-faq h2,
+.about-cta h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.about-page p,
+.about-page li {
+  color: #4b5563;
+}
+
+.about-page a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-page a:hover {
+  text-decoration: underline;
+}
+
+.about-cta {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: #fff !important;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  background: #1d4ed8;
+  text-decoration: none;
+}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import "../styles/Vehicles.css";
 import axios from "axios";
+
 
 import {
   Car,
@@ -54,10 +55,46 @@ const Vehicles = () => {
         <div className="dashboard-content">
           <div className="vehicles-header">
             <div>
-              <h1>Vehicles</h1>
-              <p>
-                Manage all your linked vehicles and FASTag accounts.
-              </p>
+              <h1>Vehicle Management</h1>
+
+<p>
+  Manage all your vehicles, FASTag accounts, balances,
+  and travel activity from one centralized platform.
+</p>
+
+<p>
+  FastagTracker helps vehicle owners, families,
+  fleet managers, and transport businesses organize
+  vehicle information and monitor FASTag-related activity
+  more efficiently.
+</p>
+<div className="vehicle-links">
+  <p>
+    Review your
+    <Link to="/toll-history"> Toll History </Link>
+    or explore
+    <Link to="/analytics"> Travel Analytics </Link>
+    for deeper insights into vehicle expenses.
+  </p>
+</div>
+<section className="vehicles-info">
+  <h2>Why Vehicle Management Matters</h2>
+
+  <p>
+    Keeping vehicle information organized helps users
+    track FASTag balances, monitor travel expenses,
+    and manage transportation costs more effectively.
+  </p>
+
+  <p>
+  Whether you manage a single vehicle or an entire fleet,
+  FastagTracker provides a centralized vehicle management
+  system that simplifies tracking and reporting.
+  You can also monitor expenses through our
+  <Link to="/analytics"> Travel Analytics </Link>
+  dashboard.
+</p>
+</section>
             </div>
 
             <button

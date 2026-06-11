@@ -1,4 +1,5 @@
 // import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import logo from "../assets/Track.png"
@@ -14,30 +15,47 @@ const Footer = () => {
             <img src={logo} alt="logo" />
           </div>
           <p>
-            Track every toll payment in one centralized dashboard. Simple, fast,
-            and efficient.
+            Track FASTag transactions, toll expenses, vehicle activity, and travel records from one centralized dashboard. Built for drivers, families, and fleet operators across India.
           </p>
         </div>
 
        
         <div className="footer-column">
-          <h4>Product</h4>
-          <ul>
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>API</li>
-          </ul>
-        </div>
+  <h4>Product</h4>
+
+  <ul>
+    <li>
+      <Link to="/features">Features</Link>
+    </li>
+
+    <li>
+      <Link to="/analytics">Analytics</Link>
+    </li>
+
+    <li>
+      <Link to="/signup">Get Started</Link>
+    </li>
+  </ul>
+</div>
 
        
         <div className="footer-column">
-          <h4>Company</h4>
-          <ul>
-            <li>About</li>
-            <li>Careers</li>
-            <li>Contact</li>
-          </ul>
-        </div>
+  <h4>Company</h4>
+
+  <ul>
+    <li>
+      <Link to="/about">About</Link>
+    </li>
+
+    <li>
+      <Link to="/contact">Contact</Link>
+    </li>
+
+    <li>
+      <Link to="/signup">Join Us</Link>
+    </li>
+  </ul>
+</div>
 
         
         <div className="footer-column">
