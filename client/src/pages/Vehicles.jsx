@@ -107,7 +107,21 @@ const Vehicles = () => {
           </div>
 
           {vehicles.length === 0 ? (
-            <p>No vehicles found.</p>
+            <div className="empty-vehicle-state">
+  <h2>No vehicles added yet</h2>
+  <p>
+    Add your first vehicle to start tracking FASTag balance, toll history, and
+    travel expenses.
+  </p>
+
+  <button
+    className="add-vehicle-btn"
+    onClick={() => navigate("/add-vehicle")}
+  >
+    <Plus size={18} />
+    Add Your First Vehicle
+  </button>
+</div>
           ) : (
             <>
               <div className="vehicles-grid">
