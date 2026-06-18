@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Analytics.css";
 
 import Sidebar from "../components/Sidebar";
@@ -36,6 +36,23 @@ import {
 
 const Analytics = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Travel Analytics | FASTag Toll Expense Insights";
+
+    let metaDescription = document.querySelector("meta[name='description']");
+
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+
+    metaDescription.setAttribute(
+      "content",
+      "FastagTracker Travel Analytics helps users understand toll spending, FASTag transactions, route usage, vehicle activity, and travel expense patterns."
+    );
+  }, []);
 
   const monthlyData = [
     { month: "Sep", amount: 1800 },
@@ -91,47 +108,35 @@ const Analytics = () => {
 
   return (
     <div className="dashboard-layout">
-      <Sidebar 
+      <Sidebar
         isMobileOpen={isMobileOpen}
         setIsMobileOpen={setIsMobileOpen}
       />
 
       <div className="dashboard-main">
-        <DashboardNavbar 
-          setIsMobileOpen={setIsMobileOpen}
-        />
+        <DashboardNavbar setIsMobileOpen={setIsMobileOpen} />
 
         <div className="analytics-content">
-
+          {/* Header */}
           <div className="analytics-header">
-  <h1>Travel Analytics & Toll Expense Insights</h1>
+            <h1>Travel Analytics</h1>
 
-  <p>
-    FastagTracker Analytics helps users understand toll spending,
-    travel behavior, vehicle activity, and FASTag usage through
-    visual reports and interactive charts.
-  </p>
+            <p>
+              Understand your toll spending, trip activity, and vehicle usage
+              with simple visual reports.
+            </p>
+          </div>
 
-  <p>
-    Monitor monthly toll expenses, analyze travel trends, compare
-    vehicle performance, and identify opportunities to reduce
-    transportation costs.
-  </p>
-</div>
-<div className="analytics-links">
-  <p>
-    Review your
-    <Link to="/toll-history"> Toll History </Link>
-    or manage vehicles through
-    <Link to="/vehicles"> Vehicle Management </Link>
-    for deeper insights.
-  </p>
-</div>
+          <div className="analytics-links">
+            <p>
+              Review your <Link to="/toll-history">Toll History</Link> or
+              manage vehicles through{" "}
+              <Link to="/vehicles">Vehicle Management</Link>.
+            </p>
+          </div>
 
-          {/* TOP CARDS */}
-
+          {/* Top Cards */}
           <div className="analytics-cards">
-
             <div className="analytics-card">
               <div className="card-icon blue">
                 <IndianRupee size={22} />
@@ -173,8 +178,7 @@ const Analytics = () => {
             </div>
           </div>
 
-          {/* MONTHLY CHART */}
-
+          {/* Monthly Chart */}
           <div className="chart-card large-chart">
             <h2>Monthly Toll Spending</h2>
 
@@ -188,12 +192,10 @@ const Analytics = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* TWO CHARTS */}
-
+          {/* Two Charts */}
           <div className="double-charts">
-
             <div className="chart-card">
-              <h2>Trip Frequency (This Week)</h2>
+              <h2>Trip Frequency</h2>
 
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={weeklyData}>
@@ -247,8 +249,7 @@ const Analytics = () => {
             </div>
           </div>
 
-          {/* AREA CHART */}
-
+          {/* Area Chart */}
           <div className="chart-card large-chart">
             <h2>Year-over-Year Comparison</h2>
 
@@ -275,10 +276,8 @@ const Analytics = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* BOTTOM CHARTS */}
-
+          {/* Bottom Charts */}
           <div className="double-charts">
-
             <div className="chart-card">
               <h2>Trip Time Distribution</h2>
 
@@ -327,13 +326,11 @@ const Analytics = () => {
             </div>
           </div>
 
-          {/* VEHICLE ANALYSIS */}
-
+          {/* Vehicle Analysis */}
           <div className="chart-card">
             <h2>Vehicle-wise Analysis</h2>
 
             <div className="vehicle-analysis">
-
               <div className="analysis-item">
                 <div className="analysis-top">
                   <div>
@@ -371,37 +368,32 @@ const Analytics = () => {
               </div>
             </div>
           </div>
+
+          {/* Info Section */}
           <section className="analytics-info">
-  <h2>Why Travel Analytics Matters</h2>
+            <h2>Why Travel Analytics Matters</h2>
 
-  <p>
-    Understanding travel expenses is essential for vehicle owners,
-    families, fleet managers, and transport businesses.
-    FastagTracker Analytics provides visibility into toll payments,
-    route usage, and travel spending patterns.
-  </p>
+            <p>
+              Travel analytics helps you understand toll expenses, route usage,
+              and vehicle activity.
+            </p>
 
-  <p>
-  By analyzing FASTag transactions and vehicle activity,
-  users can make informed decisions, optimize travel costs,
-  and improve overall transportation efficiency. Users can also
-  review detailed <Link to="/toll-history">toll history records</Link>
-  and monitor vehicle performance through
-  <Link to="/dashboard"> dashboard reports</Link>.
-</p>
-</section>
+            <p>
+              FastagTracker turns FASTag transactions into simple insights so
+              you can manage travel costs better.
+            </p>
+          </section>
 
-          {/* INSIGHTS */}
-
+          {/* Insights */}
           <div className="insights-box">
-
             <div className="insights-title">
               <Lightbulb size={22} />
               <h2>Insights & Recommendations</h2>
             </div>
 
             <div className="insight-item">
-              Peak hour savings: You could save ₹450/month by avoiding evening rush.
+              Peak hour savings: You could save ₹450/month by avoiding evening
+              rush.
             </div>
 
             <div className="insight-item">
@@ -412,15 +404,10 @@ const Analytics = () => {
               Subscription opportunity: Monthly pass could save ₹800/month.
             </div>
 
-            <button className="report-btn">
-              View Detailed Report
-            </button>
-
+            <button className="report-btn">View Detailed Report</button>
           </div>
-
         </div>
       </div>
-      
     </div>
   );
 };

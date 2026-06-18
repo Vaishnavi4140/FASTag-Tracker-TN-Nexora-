@@ -7,7 +7,7 @@
   background: transparent;
   background-image: 
     linear-gradient(#e5e7eb 1px, transparent 1px),
-    linear-gradient(90  deg, #e5e7eb 1px, transparent 1px);
+    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
   background-size: 50px 50px;
 }
 .bg-video {
@@ -1035,3 +1035,146 @@ line-height: 1.5;
   margin-top: 0;
 }
 
+/* Hero video text overlap fix - only for top video section */
+
+.das .bg-video {
+  object-fit: cover;
+}
+
+.das .video-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.52) 45%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+.das .dashboard-left h1,
+.das .dashboard-left p {
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+}
+
+.das .dashboard-buttons .get-btn,
+.das .dashboard-buttons .demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+/* Show bottom-right area of video better */
+.das .bg-video {
+  object-fit: cover;
+  object-position: right bottom;
+  transform: none;
+}
+/* Stats section left-right spacing final fix */
+.dashboard-wrapper .about-center-text {
+  max-width: 1500px;
+  width: calc(100% - 48px);
+  min-height: 250px;
+  height: auto;
+  margin: 40px auto 0;
+  padding: 30px 35px;
+  box-sizing: border-box;
+}
+
+/* Mobile stats spacing */
+@media (max-width: 768px) {
+  .dashboard-wrapper .about-center-text {
+    width: calc(100% - 32px);
+    margin: 35px auto 0;
+    padding: 30px 20px;
+  }
+}
+/* Home About Cards Center Alignment */
+.dashboard-wrapper .about-card {
+  align-items: center;
+  text-align: center;
+  padding: 36px 28px;
+}
+
+.dashboard-wrapper .about-card .icon-box {
+  margin: 0 auto 22px;
+  width: 78px;
+  height: 78px;
+  border-radius: 22px;
+}
+
+.dashboard-wrapper .about-card-containt h2 {
+  text-align: center;
+  margin: 18px 0 14px;
+}
+
+.dashboard-wrapper .about-card-containt p {
+  text-align: center;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-wrapper .about-card {
+    padding: 28px 22px;
+  }
+}
+/* Summary cards alignment with feature cards - final */
+.dashboard-wrapper .home-card-container {
+  max-width: 1450px;
+  width: calc(100% - 48px);
+  margin: 36px auto 70px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.dashboard-wrapper .home-card {
+  width: 100%;
+  min-height: 155px;
+  padding: 28px 30px;
+  border-radius: 18px;
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-wrapper .home-icon {
+  margin-bottom: 18px;
+}
+
+.dashboard-wrapper .value {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.dashboard-wrapper .title {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .dashboard-wrapper .home-card-container {
+    grid-template-columns: repeat(2, 1fr);
+    width: calc(100% - 40px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-wrapper .home-card-container {
+    grid-template-columns: 1fr;
+    width: calc(100% - 32px);
+    margin: 28px auto 50px;
+    gap: 18px;
+  }
+
+  .dashboard-wrapper .home-card {
+    min-height: auto;
+    padding: 24px;
+  }
+}

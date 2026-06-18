@@ -1,173 +1,263 @@
-.toll-header {
+.dashboard-content {
+  padding: 40px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Header */
+.dashboard-content .toll-header {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  border-radius: 22px;
+  padding: 36px;
   margin-bottom: 30px;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.18);
 }
 
-.toll-header h1 {
-  font-size: 32px;
-  font-weight: 800;
-  color: #111827;
+.dashboard-content .toll-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #ffffff;
 }
 
-.toll-header p {
-  color: #6b7280;
-  margin-top: 8px;
-  max-width: 650px;
+.dashboard-content .toll-header p {
+  max-width: 760px;
+  color: #eef2ff;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 10px;
 }
 
-.calculator-card {
+.dashboard-content .toll-header a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Calculator Card */
+.dashboard-content .calculator-card {
   position: relative;
-  background: white;
+  background: #ffffff;
   border-radius: 24px;
-  padding: 30px;
+  padding: 32px;
   border: 1px solid #e5e7eb;
   overflow: hidden;
   margin-bottom: 30px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  min-height: 420px;
 }
 
-.coming-soon-badge {
+.dashboard-content .coming-soon-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   background: #fff7ed;
   color: #ea580c;
-
   border: 1px solid #fdba74;
-
   padding: 8px 14px;
   border-radius: 999px;
-
   font-size: 14px;
-  font-weight: 600;
-
+  font-weight: 700;
   margin-bottom: 25px;
 }
 
-.calculator-preview {
+/* Disabled Preview */
+.dashboard-content .calculator-preview {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  opacity: 0.4;
-  filter: blur(1.5px);
+  opacity: 0.35;
+  filter: blur(1.3px);
   pointer-events: none;
 }
 
-.input-group {
+.dashboard-content .input-group {
   display: flex;
   flex-direction: column;
 }
 
-.input-group label {
+.dashboard-content .input-group label {
   display: flex;
   align-items: center;
   gap: 8px;
-
   margin-bottom: 8px;
-
   font-weight: 600;
   color: #374151;
 }
 
-.input-group input,
-.input-group select {
+.dashboard-content .input-group input,
+.dashboard-content .input-group select {
   height: 50px;
   border-radius: 12px;
   border: 1px solid #d1d5db;
   padding: 0 14px;
   background: #f9fafb;
+  color: #111827;
+  outline: none;
 }
 
-.calculate-btn {
+.dashboard-content .calculate-btn {
   height: 50px;
-
   border: none;
   border-radius: 12px;
-
   background: #2563eb;
-  color: white;
-
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   font-weight: 600;
 }
 
-.overlay-message {
+/* Overlay Message */
+.dashboard-content .overlay-message {
   position: absolute;
-
-  top: 50%;
+  top: 55%;
   left: 50%;
-
   transform: translate(-50%, -50%);
   text-align: center;
-
-  max-width: 450px;
+  max-width: 460px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 
-.overlay-message h3 {
+.dashboard-content .overlay-message h3 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   color: #111827;
 }
 
-.overlay-message p {
+.dashboard-content .overlay-message p {
   color: #6b7280;
   line-height: 1.6;
+  margin: 0;
 }
 
-.overlay-message span {
+.dashboard-content .overlay-message span {
   display: inline-block;
   margin-top: 15px;
-
   background: #eff6ff;
   color: #2563eb;
-
   padding: 8px 16px;
   border-radius: 999px;
-
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.feature-grid {
+/* Feature Grid */
+.dashboard-content .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 22px;
+  margin-bottom: 30px;
 }
 
-.calculate-feature-card {
-  background: white;
+.dashboard-content .calculate-feature-card {
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 20px;
   padding: 24px;
-
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
   transition: 0.3s ease;
 }
 
-.calculate-feature-card:hover {
+.dashboard-content .calculate-feature-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
 }
 
-.calculate-feature-card h4 {
-  margin-bottom: 10px;
+.dashboard-content .calculate-feature-card h4 {
+  margin: 0 0 10px;
   font-size: 18px;
   color: #111827;
 }
 
-.calculate-feature-card p {
+.dashboard-content .calculate-feature-card p {
   color: #6b7280;
   line-height: 1.6;
+  margin: 0;
 }
 
+/* Info Section */
+.dashboard-content .toll-calculator-info {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+}
+
+.dashboard-content .toll-calculator-info h2 {
+  font-size: 26px;
+  color: #111827;
+  margin: 0 0 12px;
+}
+
+.dashboard-content .toll-calculator-info p {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 10px;
+}
+
+.dashboard-content .toll-calculator-info a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dashboard-content .toll-calculator-info a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
 @media (max-width: 992px) {
-  .feature-grid {
+  .dashboard-content .feature-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .overlay-message {
-    width: 90%;
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 22px 16px;
+  }
+
+  .dashboard-content .toll-header {
+    padding: 26px 22px;
+  }
+
+  .dashboard-content .toll-header h1 {
+    font-size: 28px;
+  }
+
+  .dashboard-content .toll-header p {
+    font-size: 15px;
+  }
+
+  .dashboard-content .calculator-card {
+    padding: 22px;
+    min-height: 430px;
+  }
+
+  .dashboard-content .overlay-message {
+    padding: 22px;
+  }
+
+  .dashboard-content .overlay-message h3 {
+    font-size: 21px;
+  }
+
+  .dashboard-content .toll-calculator-info {
+    padding: 22px;
+  }
+
+  .dashboard-content .toll-calculator-info h2 {
+    font-size: 23px;
   }
 }
